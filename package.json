@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix",
     "reformat": " npx prettier --write .",
     "preview": "vite preview",
-    "deploy": "tsc && vite build && firebase deploy",
+    "deploy": "firebase deploy",
     "sanity:dev": "sanity dev --port 3333",
     "sanity:deploy": "sanity deploy",
     "sanity:build": "sanity build ./build/studio --base-path=/studio"

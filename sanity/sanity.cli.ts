@@ -14,8 +14,8 @@ if (existsSync(envPath)) {
   loadEnv({ path: envPath, override: false })
 }
 
-const projectId = process.env.VITE_SANITY_PROJECT_ID || 'tpqkk0f3'
-const dataset = process.env.VITE_SANITY_DATASET || 'production'
+const projectId = process.env.VITE_SANITY_PROJECT_ID
+const dataset = process.env.VITE_SANITY_DATASET
 
 if (!projectId) {
   throw new Error(

@@ -2,7 +2,7 @@ import { createClient } from '@sanity/client'
 
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID
 const dataset = import.meta.env.VITE_SANITY_DATASET
-const apiVersion = import.meta.env.VITE_SANITY_API_VERSION || '2026-04-23'
+const apiVersion = import.meta.env.VITE_SANITY_API_VERSION
 
 console.log('projectId', projectId)
 console.log('dataset', dataset)
@@ -17,6 +17,12 @@ if (!projectId) {
 if (!dataset) {
   throw new Error(
     'Missing VITE_SANITY_DATASET. Add it to your .env.local before starting the app.',
+  )
+}
+
+if (!apiVersion) {
+  throw new Error(
+    'Missing VITE_SANITY_API_VERSION. Add it to your .env.local before starting the app.',
   )
 }
 

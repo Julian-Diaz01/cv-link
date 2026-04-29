@@ -57,8 +57,6 @@ npm run sanity:dev
 npm run sanity:deploy
 ```
 
-See the migration playbook in `docs/sanity-migration-playbook.md` for dataset planning.
-
 ## 🔨 Build
 
 ```bash

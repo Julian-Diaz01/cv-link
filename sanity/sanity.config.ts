@@ -1,19 +1,22 @@
+/// <reference types="vite/client" />
+
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { schemaTypes } from './schemaTypes'
 
-const projectId = process.env.VITE_SANITY_PROJECT_ID || 'tpqkk0f3'
-const dataset = process.env.VITE_SANITY_DATASET || 'production'
+const env = import.meta.env as Record<string, string | undefined>
+const projectId = env.SANITY_STUDIO_PROJECT_ID ?? env.VITE_SANITY_PROJECT_ID
+const dataset = env.SANITY_STUDIO_DATASET ?? env.VITE_SANITY_DATASET
 
 if (!projectId) {
   throw new Error(
-    'Missing VITE_SANITY_PROJECT_ID. Add it to your .env.local before running Sanity Studio.',
+    'Missing SANITY_STUDIO_PROJECT_ID (or VITE_SANITY_PROJECT_ID',
   )
 }
 
 if (!dataset) {
   throw new Error(
-    'Missing VITE_SANITY_DATASET. Add it to your .env.local before running Sanity Studio.',
+    'Missing SANITY_STUDIO_DATASET (or VITE_SANITY_DATASET)',
   )
 }
 
