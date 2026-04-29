@@ -31,6 +31,34 @@ npm install
 npm run dev
 ```
 
+## CMS (Sanity) Setup
+
+This project reads Sanity config from env vars: `VITE_SANITY_PROJECT_ID` and `VITE_SANITY_DATASET`.
+
+1. Create local env file by copying `.env.example` to `.env.local`:
+
+```bash
+# macOS/Linux
+cp .env.example .env.local
+
+# Windows PowerShell
+Copy-Item .env.example .env.local
+```
+
+2. Start Sanity Studio:
+
+```bash
+npm run sanity:dev
+```
+
+3. Deploy Studio updates:
+
+```bash
+npm run sanity:deploy
+```
+
+See the migration playbook in `docs/sanity-migration-playbook.md` for dataset planning.
+
 ## 🔨 Build
 
 ```bash

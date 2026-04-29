@@ -2,16 +2,16 @@
   {
     "name": "Spanish",
     "description": "Native",
-    "chips": ["Speaking", "Writing", "Reading", "Culture"]
+    "chips": ["C2"]
   },
   {
     "name": "English",
     "description": "Fluent",
-    "chips": ["Speaking", "Writing", "Reading", "Technical Communication"]
+    "chips": ["C2"]
   },
   {
     "name": "German",
     "description": "B1 certified",
-    "chips": ["Speaking", "Reading", "Writing"]
+    "chips": ["B1"]
   }
 ]

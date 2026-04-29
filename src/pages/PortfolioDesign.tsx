@@ -1,14 +1,11 @@
-import React, { Suspense, useMemo, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { ThemeProvider } from '../context/ThemeContext'
 import { Profile, Job, Education, Language } from '../types'
 import SEO from '../components/SEO'
-import {
-  generateComprehensiveProfileSchema,
-  generateWorkExperienceSchema,
-  generateEducationSchema,
-  generateFAQSchema,
-} from '../utils/seoStructuredData'
 import { trackMetric } from '../utils/sentry'
+import { getProfile } from '../lib/sanity/profile'
+import { getLanguages } from '../lib/sanity/language'
+import { usePortfolioStructuredData } from '../hooks/usePortfolioPage'
 
 // Lazy load components for code splitting
 const Navigation = React.lazy(() => import('../components/Navigation'))
@@ -23,90 +20,22 @@ const ContactPopup = React.lazy(() => import('../components/ContactPopup'))
 import profileData from '../data/profile.json'
 import jobsData from '../data/jobs.json'
 import educationData from '../data/education.json'
+import languagesData from '../data/languages.json'
 
 const PortfolioDesign: React.FC = () => {
-  // Type assertions for JSON imports
-  const profile = profileData as Profile
+  const profileFallback = profileData as Profile
+  const [profile, setProfile] = useState<Profile>(profileFallback)
   const jobs = jobsData as Job[]
   const education = educationData as Education[]
-  const languages: Language[] = [
-    {
-      name: 'Spanish',
-      description: 'Native',
-      chips: ['C2'],
-    },
-    {
-      name: 'English',
-      description: 'Native',
-      chips: ['C2'],
-    },
-    {
-      name: 'German',
-      description: 'Intermediate',
-      chips: ['B1'],
-    },
-  ]
 
-  // Generate structured data for AI search engines
-  const structuredData = useMemo(() => {
-    // FAQ data for better AI understanding
-    const faqs = [
-      {
-        question: 'Who is Julian Diaz?',
-        answer: `Julian Diaz is a frontend Engineer based in Berlin, Germany with ${profile.yearsOfExperience}+ years of experience in web development, specializing in React, TypeScript, Next.js, and modern web technologies.`,
-      },
-      {
-        question: 'What technologies does Julian Diaz work with?',
-        answer:
-          'Julian has expertise in React, TypeScript, JavaScript, Next.js, Node.js, Express, Flutter, React Native, Firebase, MongoDB, Tailwind CSS, and various modern web development tools and frameworks.',
-      },
-      {
-        question: 'Where is Julian Diaz located?',
-        answer: `Julian is based in ${profile.location} and is available for remote work opportunities globally.`,
-      },
-      {
-        question: 'What kind of projects has Julian worked on?',
-        answer:
-          'Julian has worked on diverse projects including fleet management platforms for 5000+ vehicles at ZF Group, mobile-first progressive web apps for real-time learning, educational technology solutions, and B2C automotive sales applications.',
-      },
-      {
-        question: 'How can I contact Julian Diaz?',
-        answer: `You can reach Julian via on LinkedIn or GitHub.`,
-      },
-    ]
+  const languagesFallback = languagesData as Language[]
+  const [languages, setLanguages] = useState<Language[]>(languagesFallback)
 
-    return {
-      '@context': 'https://schema.org',
-      '@graph': [
-        // Main Profile Schema
-        generateComprehensiveProfileSchema(jobs, education),
-
-        // Work Experience Schema
-        ...generateWorkExperienceSchema(jobs),
-
-        // Education Schema
-        ...generateEducationSchema(education),
-
-        // FAQ Schema
-        generateFAQSchema(faqs),
-
-        // Portfolio Schema
-        {
-          '@type': 'ItemList',
-          name: 'Professional Experience',
-          itemListElement: jobs.map((job, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: {
-              '@type': 'Organization',
-              name: job.subTitle,
-              url: job.cardLink,
-            },
-          })),
-        },
-      ],
-    }
-  }, [profile, jobs, education])
+  const structuredData = usePortfolioStructuredData({
+    profile,
+    jobs,
+    education,
+  })
 
   const breadcrumbs = [{ name: 'Home', url: 'https://juliandiaz.web.app/' }]
 
@@ -117,6 +46,40 @@ const PortfolioDesign: React.FC = () => {
       timestamp: Date.now(),
     })
   }, [])
+
+  useEffect(() => {
+    let isMounted = true
+
+    const loadProfile = async () => {
+      const cmsProfile = await getProfile(profileFallback)
+      if (isMounted) {
+        setProfile(cmsProfile)
+      }
+    }
+
+    loadProfile()
+
+    return () => {
+      isMounted = false
+    }
+  }, [profileFallback])
+
+  useEffect(() => {
+    let isMounted = true
+
+    const loadLanguages = async () => {
+      const cmsLanguages = await getLanguages(languagesFallback)
+      if (isMounted) {
+        setLanguages(cmsLanguages)
+      }
+    }
+
+    loadLanguages()
+
+    return () => {
+      isMounted = false
+    }
+  }, [languagesFallback])
 
   return (
     <ThemeProvider>

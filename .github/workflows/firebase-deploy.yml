@@ -26,11 +26,16 @@ jobs:
           echo "VITE_STORAGE_BUCKET=${{ secrets.VITE_STORAGE_BUCKET }}" >> .env
           echo "VITE_SENTRY_DSN=${{ secrets.VITE_SENTRY_DSN }}" >> .env
           echo "FIREBASE_SERVICE_ACCOUNT_KONNEKTAR_5E73F=${{ secrets.FIREBASE_SERVICE_ACCOUNT_KONNEKTAR_5E73F }}" >> .env
+          echo "VITE_SANITY_PROJECT_ID=${{ secrets.VITE_SANITY_PROJECT_ID }}" >> .env
+          echo "VITE_SANITY_DATASET=${{ secrets.VITE_SANITY_DATASET }}" >> .env 
+          echo "VITE_SANITY_API_VERSION=${{ secrets.VITE_SANITY_API_VERSION }}" >> .env
       - name: Generate Build Timestamp
         run: |
           echo "VITE_BUILD_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> .env
-      - name: Build
+      - name: Build app + Sanity Studio
         run: npm run build
+      - name: Build Sanity Studio
+        run: npm run sanity:build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
