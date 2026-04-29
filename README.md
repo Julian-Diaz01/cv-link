@@ -65,11 +65,13 @@ npm run build
 
 ## 🚢 Deployment
 
-This project is configured for deployment to Firebase Hosting:
+This project uses separate deployment targets:
+- Portfolio app: Firebase Hosting
+- Sanity Studio: Sanity hosting (`sanity deploy`)
 
 ```bash
 npm run build
-firebase deploy
+npm run deploy
 ```
 
 ## 📁 Project Structure

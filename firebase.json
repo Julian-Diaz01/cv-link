@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "predeploy": ["npm run build", "npm run sanity:build"],
+    "predeploy": ["npm run build"],
     "headers": [
       {
         "source": "**/*.@(js)",
@@ -16,8 +16,6 @@
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
-      { "source": "/studio", "destination": "/studio/index.html" },
-      { "source": "/studio/**", "destination": "/studio/index.html" },
       { "source": "**", "destination": "/index.html" }
     ]
   }

@@ -10,10 +10,10 @@
     "lint:fix": "eslint . --fix",
     "reformat": " npx prettier --write .",
     "preview": "vite preview",
-    "deploy": "firebase deploy",
+    "deploy": "npx firebase-tools deploy",
     "sanity:dev": "sanity dev --port 3333",
     "sanity:deploy": "sanity deploy",
-    "sanity:build": "sanity build ./build/studio --base-path=/studio --yes"
+    "sanity:build": "sanity build --yes"
   },
   "dependencies": {
     "@react-three/drei": "^9.122.0",

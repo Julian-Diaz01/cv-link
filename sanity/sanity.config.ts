@@ -23,7 +23,6 @@ if (!dataset) {
 export default defineConfig({
   name: 'default',
   title: 'CV-Link CMS',
-  basePath: '/studio',
   projectId,
   dataset,
   plugins: [deskTool()],
