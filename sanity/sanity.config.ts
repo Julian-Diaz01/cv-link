@@ -9,15 +9,11 @@ const projectId = env.SANITY_STUDIO_PROJECT_ID ?? env.VITE_SANITY_PROJECT_ID
 const dataset = env.SANITY_STUDIO_DATASET ?? env.VITE_SANITY_DATASET
 
 if (!projectId) {
-  throw new Error(
-    'Missing SANITY_STUDIO_PROJECT_ID (or VITE_SANITY_PROJECT_ID',
-  )
+  throw new Error('Missing SANITY_STUDIO_PROJECT_ID (or VITE_SANITY_PROJECT_ID')
 }
 
 if (!dataset) {
-  throw new Error(
-    'Missing SANITY_STUDIO_DATASET (or VITE_SANITY_DATASET)',
-  )
+  throw new Error('Missing SANITY_STUDIO_DATASET (or VITE_SANITY_DATASET)')
 }
 
 export default defineConfig({
