@@ -10,6 +10,7 @@ interface ProjectArtifactsProps {
   description?: string
   sectionId?: string
   embedded?: boolean
+  variant?: 'default' | 'timeline'
 }
 
 const statusLabelMap: Record<ArtifactStatus, string> = {
@@ -24,6 +25,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
   description = 'Snapshots of the work: diagrams, flows, and the live product when it is available.',
   sectionId = 'artifacts',
   embedded = false,
+  variant = 'default',
 }) => {
   const [yamlDialogPath, setYamlDialogPath] = useState<string | null>(null)
   const [imageDialogPath, setImageDialogPath] = useState<string | null>(null)
@@ -46,7 +48,13 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
   }
 
   const artifactsGrid = (
-    <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div
+      className={
+        variant === 'timeline'
+          ? 'grid grid-cols-1 gap-4 sm:grid-cols-2'
+          : 'grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3'
+      }
+    >
       {artifacts.map((artifact) => {
         const statusLabel = artifact.status
           ? statusLabelMap[artifact.status]
@@ -55,7 +63,11 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
         return (
           <article
             key={artifact.id}
-            className="group relative bg-slate-50 dark:bg-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+            className={
+              variant === 'timeline'
+                ? 'group relative overflow-hidden rounded-xl border border-slate-300 bg-white/90 backdrop-blur-sm transition-all duration-300 cursor-pointer hover:border-slate-400 hover:bg-white dark:border-white/20 dark:bg-white/5 dark:hover:border-white/40 dark:hover:bg-white/10'
+                : 'group relative bg-slate-50 dark:bg-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer'
+            }
             role="button"
             tabIndex={0}
             onClick={() => handleArtifactClick(artifact)}
@@ -66,7 +78,13 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
               }
             }}
           >
-            <div className="aspect-[16/9] w-full bg-slate-200 dark:bg-slate-700">
+            <div
+              className={
+                variant === 'timeline'
+                  ? 'aspect-[16/9] w-full bg-slate-200 dark:bg-slate-900/40'
+                  : 'aspect-[16/9] w-full bg-slate-200 dark:bg-slate-700'
+              }
+            >
               <img
                 alt={artifact.thumbnailAlt}
                 src={artifact.thumbnailSrc}
@@ -75,22 +93,50 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
               />
             </div>
 
-            <div className="p-4 sm:p-6 md:p-7">
+            <div
+              className={
+                variant === 'timeline' ? 'p-4 sm:p-5' : 'p-4 sm:p-6 md:p-7'
+              }
+            >
               <div className="flex items-start justify-between gap-3 mb-3">
-                <h3 className="text-lg sm:text-xl font-semibold leading-tight">
+                <h3
+                  className={
+                    variant === 'timeline'
+                      ? 'text-base sm:text-lg font-semibold leading-tight text-slate-900 dark:text-white'
+                      : 'text-lg sm:text-xl font-semibold leading-tight'
+                  }
+                >
                   {artifact.title}
                 </h3>
                 {statusLabel ? (
-                  <span className="whitespace-nowrap rounded-full border border-slate-300 dark:border-slate-600 px-2 py-0.5 text-xs text-slate-600 dark:text-slate-300">
+                  <span
+                    className={
+                      variant === 'timeline'
+                        ? 'whitespace-nowrap rounded-full border border-slate-300 px-2 py-0.5 text-xs text-slate-700 dark:border-white/30 dark:text-slate-200'
+                        : 'whitespace-nowrap rounded-full border border-slate-300 dark:border-slate-600 px-2 py-0.5 text-xs text-slate-600 dark:text-slate-300'
+                    }
+                  >
                     {statusLabel}
                   </span>
                 ) : null}
               </div>
 
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-4 sm:mb-5">
+              <p
+                className={
+                  variant === 'timeline'
+                    ? 'text-sm text-slate-700 leading-relaxed mb-4 dark:text-slate-200/85'
+                    : 'text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-4 sm:mb-5'
+                }
+              >
                 {artifact.description}
               </p>
-              <div className="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-orange-600 dark:text-orange-400">
+              <div
+                className={
+                  variant === 'timeline'
+                    ? 'inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-sky-700 dark:text-sky-200'
+                    : 'inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-orange-600 dark:text-orange-400'
+                }
+              >
                 Open artifact
                 <ExternalLink className="w-3 h-3" />
               </div>

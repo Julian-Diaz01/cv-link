@@ -52,13 +52,20 @@ export interface ArtifactLink {
 
 export interface Artifact {
   id: string
-  projectName: string
   title: string
   description: string
   thumbnailAlt: string
   thumbnailSrc: string
   links: ArtifactLink[]
   status?: ArtifactStatus
+}
+
+export interface ProjectArtifactsGroup {
+  id: string
+  projectName: string
+  shortTitle: string
+  description: string
+  artifacts: Artifact[]
 }
 
 export interface Profile {
