@@ -1,4 +1,4 @@
-# G-Link Portfolio
+# CV-Link Portfolio
 
 A modern, interactive portfolio website showcasing my professional experience, projects, and skills as a frontend Engineer.
 
