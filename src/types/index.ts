@@ -52,6 +52,7 @@ export interface ArtifactLink {
 
 export interface Artifact {
   id: string
+  projectName: string
   title: string
   description: string
   thumbnailAlt: string

@@ -1,10 +1,30 @@
 [
+
+  {
+
+    "id": "cv-app-architecture",
+    "projectName": "This Portfolio App",
+    "title": "Architecture",
+    "description": "Architecture of this portfolio app",
+    "thumbnailAlt": "Architecture preview image",
+    "thumbnailSrc": "/artifacts/cv-app-architecture.drawio.png",
+    "links": [
+      {
+        "href": "/artifacts/cv-app-architecture.drawio.png",
+        "label": "Open architecture",
+        "kind": "imageDialog"
+      }
+    ],
+    "status": "ready"
+  },
+
   {
     "id": "figma-flow",
+    "projectName": "Tennant Apartment Management App",
     "title": "Product flows + wireframes (Figma)",
     "description": "User journeys for landlord and tenant, plus MVP screen wireframes.",
     "thumbnailAlt": "Wireframe preview of the landlord and tenant dashboard flows",
-    "thumbnailSrc": "/artifacts/konnektaro-RES-thumbnail.png",
+    "thumbnailSrc": "/artifacts/tenant-RES-thumbnail.png",
     "links": [
       {
         "href": "https://www.figma.com/make/WyujU11S6MTpYGPirPZ7hG/Landlord-Tenant-Management-SaaS?t=aKpD0ox9JBs6A9kp-1",
@@ -15,13 +35,14 @@
   },
   {
     "id": "db-erd",
+    "projectName": "Tennant Apartment Management App",
     "title": "Database ERD (draw.io)",
     "description": "Tables, relations, and how data is stored (tenancies, ledger, issues, docs).",
     "thumbnailAlt": "Database entity relationship diagram preview",
-    "thumbnailSrc": "/artifacts/konnektaro-RES.svg",
+    "thumbnailSrc": "/artifacts/tenant-RES.svg",
     "links": [
       {
-        "href": "/artifacts/konnektaro-RES.svg",
+        "href": "/artifacts/tenant-RES.svg",
         "label": "Open draw.io export",
         "kind": "imageDialog"
       }
@@ -30,17 +51,49 @@
   },
   {
     "id": "api-docs",
+    "projectName": "Tennant Apartment Management App",
     "title": "API + Auth design",
     "description": "Firebase token verification, scoping rules, and endpoints (Swagger once running).",
     "thumbnailAlt": "API documentation preview image",
-    "thumbnailSrc": "/artifacts/konnektaro-RES-openapi.png",
+    "thumbnailSrc": "/artifacts/tenant-RES-openapi.png",
     "links": [
       {
-        "href": "/artifacts/konnektaro-RES-OpenAPI.yaml",
+        "href": "/artifacts/tenant-RES-OpenAPI.yaml",
         "label": "Open OpenAPI YAML",
         "kind": "yamlDialog"
       }
     ],
     "status": "planned"
+  },
+  {
+    "id": "konnektaro-architecture",
+    "projectName": "Konnektaro",
+    "title": "Konnektaro architecture",
+    "description": "Konnektaro architecture",
+    "thumbnailAlt": "Konnektaro architecture preview image",
+    "thumbnailSrc": "/artifacts/konnektaro-full-architecture.drawio.png",
+    "links": [
+      {
+        "href": "/artifacts/konnektaro-full-architecture.drawio.png",
+        "label": "Konnektaro full architecture V1",
+        "kind": "imageDialog"
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "konnektaro-figma",
+    "projectName": "Konnektaro",
+    "title": "Konnektaro Figma v0.1",
+    "description": "Konnektaro Figma v0.1",
+    "thumbnailAlt": "Konnektaro Figma v0.1 preview image",
+    "thumbnailSrc": "/artifacts/konnektaro-figma-thumbnail.png",
+    "links": [
+      {
+        "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
+        "label": "Open Figma"
+      }
+    ],
+    "status": "ready"
   }
 ]
