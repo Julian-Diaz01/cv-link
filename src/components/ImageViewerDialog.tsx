@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Minus, Plus, RotateCcw, X } from 'lucide-react'
 
 interface ImageViewerDialogProps {
@@ -54,16 +55,16 @@ const ImageViewerDialog: React.FC<ImageViewerDialogProps> = ({
     return null
   }
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[60] bg-black/70 p-4 sm:p-6"
+      className="fixed inset-0 z-[60] bg-black/70"
       role="dialog"
       aria-modal="true"
       aria-label={title}
       onClick={onClose}
     >
       <div
-        className="mx-auto flex h-full max-h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900"
+        className="flex h-full w-full flex-col overflow-hidden bg-white dark:bg-slate-900"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-900/80">
@@ -114,17 +115,7 @@ const ImageViewerDialog: React.FC<ImageViewerDialogProps> = ({
           </div>
         </div>
 
-        <div
-          className="min-h-0 flex-1 overflow-auto bg-slate-100 p-4 dark:bg-slate-950"
-          onWheel={(event) => {
-            event.preventDefault()
-            if (event.deltaY < 0) {
-              zoomIn()
-              return
-            }
-            zoomOut()
-          }}
-        >
+        <div className="min-h-0 flex-1 overflow-auto bg-slate-100 p-4 dark:bg-slate-950">
           <div className="mx-auto max-w-6xl">
             <img
               src={imagePath}
@@ -138,7 +129,8 @@ const ImageViewerDialog: React.FC<ImageViewerDialogProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { FileCode2, ScrollText, X } from 'lucide-react'
 import 'swagger-ui-react/swagger-ui.css'
 
@@ -75,16 +76,16 @@ const YamlViewerDialog: React.FC<YamlViewerDialogProps> = ({
     return null
   }
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[60] bg-black/60 p-4 sm:p-6"
+      className="fixed inset-0 z-[60] bg-black/60"
       role="dialog"
       aria-modal="true"
       aria-label={title}
       onClick={onClose}
     >
       <div
-        className="mx-auto flex h-full max-h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900"
+        className="flex h-full w-full flex-col overflow-hidden bg-white dark:bg-slate-900"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80">
@@ -120,7 +121,7 @@ const YamlViewerDialog: React.FC<YamlViewerDialogProps> = ({
               <div className="border-b border-slate-200 px-4 py-2 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
                 {filePath}
               </div>
-              <div className="max-h-[72vh] overflow-auto">
+              <div className="h-[calc(100vh-11rem)] overflow-auto">
                 <Suspense
                   fallback={
                     <div className="inline-flex items-center gap-2 p-4 text-sm text-slate-700 dark:text-slate-200">
@@ -141,7 +142,8 @@ const YamlViewerDialog: React.FC<YamlViewerDialogProps> = ({
           ) : null}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
 
