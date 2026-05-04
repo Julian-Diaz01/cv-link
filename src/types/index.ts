@@ -44,20 +44,16 @@ export interface SocialLink {
 
 export type ArtifactStatus = 'planned' | 'inProgress' | 'ready'
 
-export interface ArtifactLink {
-  href: string
-  label: string
-  kind?: 'external' | 'yamlDialog' | 'imageDialog'
-}
+export type ArtifactKind = 'external' | 'yamlDialog' | 'imageDialog'
 
 export interface Artifact {
-  id: string
   title: string
   description: string
   thumbnailAlt: string
   thumbnailSrc: string
-  links: ArtifactLink[]
-  status?: ArtifactStatus
+  href?: string
+  kind: ArtifactKind
+  status: ArtifactStatus
 }
 
 export interface ProjectArtifactsGroup {

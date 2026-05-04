@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { ExternalLink } from 'lucide-react'
 import { Artifact, ArtifactStatus } from '../types'
 import YamlViewerDialog from './YamlViewerDialog'
@@ -19,6 +20,11 @@ const statusLabelMap: Record<ArtifactStatus, string> = {
   ready: 'Ready',
 }
 
+interface ExternalDialogArtifact {
+  title: string
+  href: string
+}
+
 const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
   artifacts,
   title = 'Build artifacts',
@@ -29,22 +35,50 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
 }) => {
   const [yamlDialogPath, setYamlDialogPath] = useState<string | null>(null)
   const [imageDialogPath, setImageDialogPath] = useState<string | null>(null)
+  const [externalDialogArtifact, setExternalDialogArtifact] =
+    useState<ExternalDialogArtifact | null>(null)
+
+  useEffect(() => {
+    if (!externalDialogArtifact) return
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setExternalDialogArtifact(null)
+      }
+    }
+
+    const previousOverflow = document.body.style.overflow
+    const previousScrollbarGutter =
+      document.documentElement.style.scrollbarGutter
+
+    document.addEventListener('keydown', handleEscape)
+    document.documentElement.style.scrollbarGutter = 'stable'
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = previousOverflow
+      document.documentElement.style.scrollbarGutter = previousScrollbarGutter
+    }
+  }, [externalDialogArtifact])
 
   const handleArtifactClick = (artifact: Artifact) => {
-    const primaryLink = artifact.links[0]
-    if (!primaryLink) return
+    if (!artifact.href) return
 
-    if (primaryLink.kind === 'yamlDialog') {
-      setYamlDialogPath(primaryLink.href)
+    if (artifact.kind === 'yamlDialog') {
+      setYamlDialogPath(artifact.href)
       return
     }
 
-    if (primaryLink.kind === 'imageDialog') {
-      setImageDialogPath(primaryLink.href)
+    if (artifact.kind === 'imageDialog') {
+      setImageDialogPath(artifact.href)
       return
     }
 
-    window.open(primaryLink.href, '_blank', 'noopener,noreferrer')
+    setExternalDialogArtifact({
+      title: artifact.title,
+      href: artifact.href,
+    })
   }
 
   const artifactsGrid = (
@@ -55,14 +89,14 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
           : 'grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3'
       }
     >
-      {artifacts.map((artifact) => {
+      {artifacts.map((artifact, index) => {
         const statusLabel = artifact.status
           ? statusLabelMap[artifact.status]
           : null
 
         return (
           <article
-            key={artifact.id}
+            key={`${artifact.title}-${index}`}
             className={
               variant === 'timeline'
                 ? 'group relative overflow-hidden rounded-xl border border-slate-300 bg-white/90 backdrop-blur-sm transition-all duration-300 cursor-pointer hover:border-slate-400 hover:bg-white dark:border-white/20 dark:bg-white/5 dark:hover:border-white/40 dark:hover:bg-white/10'
@@ -187,6 +221,58 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
         title="draw.io ERD"
         onClose={() => setImageDialogPath(null)}
       />
+      {externalDialogArtifact
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6"
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Open external artifact: ${externalDialogArtifact.title}`}
+              onClick={() => setExternalDialogArtifact(null)}
+            >
+              <div
+                className="flex w-full max-w-lg flex-col gap-5 rounded-2xl border border-slate-300 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                    Open external artifact
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                    You are about to open{' '}
+                    <span className="font-medium text-slate-800 dark:text-slate-100">
+                      {externalDialogArtifact.title}
+                    </span>{' '}
+                    in a new tab.
+                  </p>
+                </div>
+                <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
+                  {externalDialogArtifact.href}
+                </div>
+                <div className="flex justify-end gap-3">
+                  <button
+                    type="button"
+                    className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                    onClick={() => setExternalDialogArtifact(null)}
+                  >
+                    Cancel
+                  </button>
+                  <a
+                    href={externalDialogArtifact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-600"
+                    onClick={() => setExternalDialogArtifact(null)}
+                  >
+                    Open link
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </>
   )
 }

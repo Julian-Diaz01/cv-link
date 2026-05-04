@@ -6,18 +6,12 @@
     "description": "Architecture of this portfolio app",
     "artifacts": [
       {
-        "id": "cv-app-architecture-png",
         "title": "Architecture (draw.io)",
         "description": "Architecture of this portfolio app.",
         "thumbnailAlt": "Architecture preview image",
         "thumbnailSrc": "/artifacts/cv-app-architecture.drawio.png",
-        "links": [
-          {
-            "href": "/artifacts/cv-app-architecture.drawio.png",
-            "label": "Open architecture",
-            "kind": "imageDialog"
-          }
-        ],
+        "href": "/artifacts/cv-app-architecture.drawio.png",
+        "kind": "imageDialog",
         "status": "ready"
       }
     ]
@@ -29,32 +23,21 @@
     "description": "System architecture and Figma artifacts for the Konnektaro project.",
     "artifacts": [
       {
-        "id": "konnektaro-architecture",
         "title": "Konnektaro architecture",
         "description": "Konnektaro architecture.",
         "thumbnailAlt": "Konnektaro architecture preview image",
         "thumbnailSrc": "/artifacts/konnektaro-full-architecture.drawio.png",
-        "links": [
-          {
-            "href": "/artifacts/konnektaro-full-architecture.drawio.png",
-            "label": "Konnektaro full architecture V1",
-            "kind": "imageDialog"
-          }
-        ],
+        "href": "/artifacts/konnektaro-full-architecture.drawio.png",
+        "kind": "imageDialog",
         "status": "ready"
       },
       {
-        "id": "konnektaro-figma",
         "title": "Konnektaro Figma v0.1",
         "description": "Konnektaro Figma v0.1.",
         "thumbnailAlt": "Konnektaro Figma v0.1 preview image",
         "thumbnailSrc": "/artifacts/konnektaro-figma-thumbnail.png",
-        "links": [
-          {
-            "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
-            "label": "Open Figma"
-          }
-        ],
+        "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
+        "kind": "external",
         "status": "ready"
       }
     ]
@@ -66,47 +49,30 @@
     "description": "Early product flows, data model, and API/Auth planning artifacts.",
     "artifacts": [
       {
-        "id": "figma-flow",
         "title": "Product flows + wireframes (Figma)",
         "description": "User journeys for landlord and tenant, plus MVP screen wireframes.",
         "thumbnailAlt": "Wireframe preview of the landlord and tenant dashboard flows",
         "thumbnailSrc": "/artifacts/tenant-RES-thumbnail.png",
-        "links": [
-          {
-            "href": "https://www.figma.com/make/WyujU11S6MTpYGPirPZ7hG/Landlord-Tenant-Management-SaaS?t=aKpD0ox9JBs6A9kp-1",
-            "label": "Open Figma"
-          }
-        ],
+        "href": "https://www.figma.com/make/WyujU11S6MTpYGPirPZ7hG/Landlord-Tenant-Management-SaaS?t=aKpD0ox9JBs6A9kp-1",
+        "kind": "external",
         "status": "inProgress"
       },
       {
-        "id": "db-erd",
         "title": "Database ERD (draw.io)",
         "description": "Tables, relations, and how data is stored (tenancies, ledger, issues, docs).",
         "thumbnailAlt": "Database entity relationship diagram preview",
         "thumbnailSrc": "/artifacts/tenant-RES.svg",
-        "links": [
-          {
-            "href": "/artifacts/tenant-RES.svg",
-            "label": "Open draw.io export",
-            "kind": "imageDialog"
-          }
-        ],
+        "href": "/artifacts/tenant-RES.svg",
+        "kind": "imageDialog",
         "status": "ready"
       },
       {
-        "id": "api-docs",
         "title": "API + Auth design",
         "description": "Firebase token verification, scoping rules, and endpoints (Swagger once running).",
         "thumbnailAlt": "API documentation preview image",
         "thumbnailSrc": "/artifacts/tenant-RES-openapi.png",
-        "links": [
-          {
-            "href": "/artifacts/tenant-RES-OpenAPI.yaml",
-            "label": "Open OpenAPI YAML",
-            "kind": "yamlDialog"
-          }
-        ],
+        "href": "/artifacts/tenant-RES-OpenAPI.yaml",
+        "kind": "yamlDialog",
         "status": "planned"
       }
     ]
@@ -118,18 +84,12 @@
     "description": "Architecture of the Fleet Manager app",
     "artifacts": [
       {
-        "id": "iomoto-app-architecture-png",
         "title": "Architecture (draw.io)",
         "description": "Architecture of the Fleet Manager app.",
         "thumbnailAlt": "Architecture preview image",
         "thumbnailSrc": "/artifacts/iomoto-app-architecture.drawio.png",
-        "links": [
-          {
-            "href": "/artifacts/iomoto-app-architecture.drawio.png",
-            "label": "Open architecture",
-            "kind": "imageDialog"
-          }
-        ],
+        "href": "/artifacts/iomoto-app-architecture.drawio.png",
+        "kind": "imageDialog",
         "status": "ready"
       }
     ]
