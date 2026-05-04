@@ -3,8 +3,8 @@ import { ThemeProvider } from '../context/ThemeContext'
 import { Profile, Job, Education, Language } from '../types'
 import SEO from '../components/SEO'
 import { trackMetric } from '../utils/sentry'
-import { getProfile } from '../lib/sanity/profile'
-import { getLanguages } from '../lib/sanity/language'
+import { getProfile } from '../../sanity/lib/profile.ts'
+import { getLanguages } from '../../sanity/lib/language.ts'
 import { usePortfolioStructuredData } from '../hooks/usePortfolioPage'
 
 // Lazy load components for code splitting

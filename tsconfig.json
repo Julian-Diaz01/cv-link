@@ -22,6 +22,11 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "sanity/lib/client.ts",
+    "sanity/lib/language.ts",
+    "sanity/lib/profile.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

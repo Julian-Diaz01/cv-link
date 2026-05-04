@@ -1,5 +1,5 @@
 import groq from 'groq'
-import { Language } from '../../types'
+import { Language } from '../../src/types'
 import { sanityClient } from './client'
 
 const isNonEmptyString = (value: unknown): value is string =>

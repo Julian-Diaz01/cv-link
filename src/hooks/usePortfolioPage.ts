@@ -7,7 +7,7 @@ import {
   generateFAQSchema,
 } from '../utils/seoStructuredData'
 import { trackMetric } from '../utils/sentry'
-import { getProfile } from '../lib/sanity/profile'
+import { getProfile } from '../../sanity/lib/profile'
 
 export const useTrackPortfolioPageLoad = () => {
   useEffect(() => {

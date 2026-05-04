@@ -1,5 +1,5 @@
 import groq from 'groq'
-import { Profile, SocialLink } from '../../types'
+import { Profile, SocialLink } from '../../src/types'
 import { sanityClient } from './client'
 
 interface SanityProfile {
