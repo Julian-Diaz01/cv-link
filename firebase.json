@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "predeploy": ["pnpm run build"],
     "headers": [
       {
         "source": "**/*.@(js)",
