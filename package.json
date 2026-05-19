@@ -2,15 +2,16 @@
   "name": "cv-link",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@10.12.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix",
-    "reformat": " npx prettier --write .",
+    "reformat": "prettier --write .",
     "preview": "vite preview",
-    "deploy": "npx firebase-tools deploy",
+    "deploy": "pnpm dlx firebase-tools deploy",
     "sanity:dev": "sanity dev --port 3333",
     "sanity:deploy": "sanity deploy",
     "sanity:build": "sanity build --yes"
@@ -37,10 +38,13 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
     "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^25.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@types/swagger-ui-react": "^5.18.0",
+    "@types/three": "0.171.0",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
     "@vitejs/plugin-react": "^4.3.4",
@@ -53,10 +57,18 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "ffmpeg-static": "^5.3.0",
+    "globals": "^17.6.0",
     "postcss": "^8.5.6",
     "prettier": "^3.4.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.7.2",
     "vite": "^7.1.7"
+  },
+  "pnpm": {
+    "overrides": {
+      "glob@>=10.2.0 <10.5.0": ">=10.5.0",
+      "prismjs@<1.30.0": ">=1.30.0",
+      "@types/three": "0.171.0"
+    }
   }
 }

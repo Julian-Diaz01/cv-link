@@ -9,12 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
       - name: Create .env file from GitHub Secrets
         run: |
           echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}" >> .env
@@ -33,9 +37,9 @@ jobs:
         run: |
           echo "VITE_BUILD_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> .env
       - name: Build app + Sanity Studio
-        run: npm run build
+        run: pnpm run build
       - name: Build Sanity Studio
-        run: npm run sanity:build
+        run: pnpm run sanity:build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

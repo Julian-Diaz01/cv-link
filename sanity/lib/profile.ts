@@ -42,9 +42,9 @@ const isValidSocialLink = (
 ): value is SocialLink =>
   Boolean(
     value &&
-      isNonEmptyString(value.name) &&
-      isNonEmptyString(value.url) &&
-      isNonEmptyString(value.icon),
+    isNonEmptyString(value.name) &&
+    isNonEmptyString(value.url) &&
+    isNonEmptyString(value.icon),
   )
 
 const mapProfileFromSanity = (

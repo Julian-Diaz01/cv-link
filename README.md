@@ -22,13 +22,13 @@ A modern, interactive portfolio website showcasing my professional experience, p
 ## 📦 Installation
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## 🏃‍♂️ Development
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## CMS (Sanity) Setup
@@ -48,19 +48,19 @@ Copy-Item .env.example .env.local
 2. Start Sanity Studio:
 
 ```bash
-npm run sanity:dev
+pnpm sanity:dev
 ```
 
 3. Deploy Studio updates:
 
 ```bash
-npm run sanity:deploy
+pnpm sanity:deploy
 ```
 
 ## 🔨 Build
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## 🚢 Deployment
@@ -71,8 +71,8 @@ This project uses separate deployment targets:
 - Sanity Studio: Sanity hosting (`sanity deploy`)
 
 ```bash
-npm run build
-npm run deploy
+pnpm build
+pnpm deploy
 ```
 
 ## 📁 Project Structure
