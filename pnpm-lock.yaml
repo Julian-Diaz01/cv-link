@@ -74,6 +74,12 @@ importers:
       '@eslint/js':
         specifier: ^9.39.4
         version: 9.39.4
+      '@fontsource-variable/archivo':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/sometype-mono':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@tailwindcss/postcss':
         specifier: ^4.1.13
         version: 4.3.0
@@ -1499,6 +1505,12 @@ packages:
 
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
+
+  '@fontsource-variable/archivo@5.2.8':
+    resolution: {integrity: sha512-R8EotpKHEsKv7d7oiUyjyPENRi2gtAlwdTlzDCOs5BfX/LJP7jvUYJ4fF/qyd3rnbgk3r1xp33g1P57bYJfhzQ==}
+
+  '@fontsource/sometype-mono@5.2.7':
+    resolution: {integrity: sha512-O4+MlxspnkU4LsoKeu+kBw2HzGoZZyJ+UWgxb28M9Ppcy/nxv1PgPO2p0gD4LWMu9IPVHjDSgrhGXz+5Vg9HJg==}
 
   '@grpc/grpc-js@1.9.15':
     resolution: {integrity: sha512-nqE7Hc0AzI+euzUwDAy0aY5hCp10r734gMGRdU+qOPX0XSceI2ULrcXB5U2xSc5VkWwalCj4M7GzCAygZl2KoQ==}
@@ -8366,6 +8378,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@floating-ui/utils@0.2.11': {}
+
+  '@fontsource-variable/archivo@5.2.8': {}
+
+  '@fontsource/sometype-mono@5.2.7': {}
 
   '@grpc/grpc-js@1.9.15':
     dependencies:
