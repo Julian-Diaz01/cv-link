@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Education, Job, Profile } from '../types'
 import {
   generateComprehensiveProfileSchema,
@@ -7,7 +7,6 @@ import {
   generateFAQSchema,
 } from '../utils/seoStructuredData'
 import { trackMetric } from '../utils/sentry'
-import { getProfile } from '../../sanity/lib/profile'
 
 export const useTrackPortfolioPageLoad = () => {
   useEffect(() => {
@@ -16,29 +15,6 @@ export const useTrackPortfolioPageLoad = () => {
       timestamp: Date.now(),
     })
   }, [])
-}
-
-export const usePortfolioProfile = (profileFallback: Profile) => {
-  const [profile, setProfile] = useState<Profile>(profileFallback)
-
-  useEffect(() => {
-    let isMounted = true
-
-    const loadProfile = async () => {
-      const cmsProfile = await getProfile(profileFallback)
-      if (isMounted) {
-        setProfile(cmsProfile)
-      }
-    }
-
-    loadProfile()
-
-    return () => {
-      isMounted = false
-    }
-  }, [profileFallback])
-
-  return profile
 }
 
 interface UsePortfolioStructuredDataProps {
