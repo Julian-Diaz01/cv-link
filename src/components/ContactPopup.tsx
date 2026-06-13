@@ -57,24 +57,13 @@ const ContactPopup: React.FC = () => {
     >
       <style>{`
         @keyframes slideUpFadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
         .chat-bubble {
           position: relative;
-          background: rgb(30, 41, 59);
-          border-radius: 18px;
+          background: var(--color-ink);
           padding: 12px 16px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        .dark .chat-bubble {
-          background: rgb(229, 231, 235);
         }
         .chat-bubble::after {
           content: '';
@@ -85,10 +74,7 @@ const ContactPopup: React.FC = () => {
           height: 0;
           border-left: 12px solid transparent;
           border-right: 12px solid transparent;
-          border-top: 12px solid rgb(30, 41, 59);
-        }
-        .dark .chat-bubble::after {
-          border-top-color: rgb(229, 231, 235);
+          border-top: 12px solid var(--color-ink);
         }
       `}</style>
 
@@ -96,14 +82,14 @@ const ContactPopup: React.FC = () => {
       <div className="chat-bubble relative">
         <button
           onClick={handleDismiss}
-          className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-slate-200 dark:bg-slate-700 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+          className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-surface border border-line text-ink-muted hover:text-ink transition-colors"
           aria-label="Close popup"
         >
           <X className="w-3 h-3" />
         </button>
         <button
           onClick={handleContactClick}
-          className="bg-orange-600 dark:bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-700 dark:hover:bg-orange-600 transition-colors text-sm whitespace-nowrap"
+          className="bg-accent text-white px-4 py-2 font-mono font-medium hover:bg-accent-strong transition-colors text-xs whitespace-nowrap"
         >
           Contact Me
         </button>

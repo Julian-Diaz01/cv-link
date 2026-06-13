@@ -1,10 +1,11 @@
 import { useEffect, useMemo } from 'react'
-import { Education, Job, Profile } from '../types'
+import { Education, Job, Profile, Project } from '../types'
 import {
   generateComprehensiveProfileSchema,
   generateWorkExperienceSchema,
   generateEducationSchema,
   generateFAQSchema,
+  generateProjectSchema,
 } from '../utils/seoStructuredData'
 import { trackMetric } from '../utils/sentry'
 
@@ -21,12 +22,14 @@ interface UsePortfolioStructuredDataProps {
   profile: Profile
   jobs: Job[]
   education: Education[]
+  projects?: Project[]
 }
 
 export const usePortfolioStructuredData = ({
   profile,
   jobs,
   education,
+  projects = [],
 }: UsePortfolioStructuredDataProps) =>
   useMemo(() => {
     const faqs = [
@@ -54,6 +57,18 @@ export const usePortfolioStructuredData = ({
       },
     ]
 
+    const projectSchemas = projects.map((project) =>
+      generateProjectSchema({
+        name: project.name,
+        description: project.tagline,
+        url: project.links.find((l) => l.kind === 'live')?.url,
+        image: project.heroImage?.src
+          ? `https://juliandiaz.web.app${project.heroImage.src}`
+          : undefined,
+        technologies: project.techStack,
+      }),
+    )
+
     return {
       '@context': 'https://schema.org',
       '@graph': [
@@ -61,6 +76,7 @@ export const usePortfolioStructuredData = ({
         ...generateWorkExperienceSchema(jobs),
         ...generateEducationSchema(education),
         generateFAQSchema(faqs),
+        ...projectSchemas,
         {
           '@type': 'ItemList',
           name: 'Professional Experience',
@@ -76,4 +92,4 @@ export const usePortfolioStructuredData = ({
         },
       ],
     }
-  }, [profile, jobs, education])
+  }, [profile, jobs, education, projects])

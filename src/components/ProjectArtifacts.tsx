@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { ExternalLink } from 'lucide-react'
 import { Artifact, ArtifactStatus } from '../types'
-import YamlViewerDialog from './YamlViewerDialog'
 import ImageViewerDialog from './ImageViewerDialog'
+
+const YamlViewerDialog = React.lazy(() => import('./YamlViewerDialog'))
 
 interface ProjectArtifactsProps {
   artifacts: Artifact[]
@@ -97,11 +98,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
         return (
           <article
             key={`${artifact.title}-${index}`}
-            className={
-              variant === 'timeline'
-                ? 'group relative overflow-hidden rounded-xl border border-slate-300 bg-white/90 backdrop-blur-sm transition-all duration-300 cursor-pointer hover:border-slate-400 hover:bg-white dark:border-white/20 dark:bg-white/5 dark:hover:border-white/40 dark:hover:bg-white/10'
-                : 'group relative bg-slate-50 dark:bg-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer'
-            }
+            className="group relative overflow-hidden border border-line bg-surface-raised cursor-pointer hover:border-line-strong transition-colors duration-200"
             role="button"
             tabIndex={0}
             onClick={() => handleArtifactClick(artifact)}
@@ -112,13 +109,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
               }
             }}
           >
-            <div
-              className={
-                variant === 'timeline'
-                  ? 'aspect-[16/9] w-full bg-slate-200 dark:bg-slate-900/40'
-                  : 'aspect-[16/9] w-full bg-slate-200 dark:bg-slate-700'
-              }
-            >
+            <div className="aspect-[16/9] w-full bg-surface-sunken">
               <img
                 alt={artifact.thumbnailAlt}
                 src={artifact.thumbnailSrc}
@@ -133,44 +124,20 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
               }
             >
               <div className="flex items-start justify-between gap-3 mb-3">
-                <h3
-                  className={
-                    variant === 'timeline'
-                      ? 'text-base sm:text-lg font-semibold leading-tight text-slate-900 dark:text-white'
-                      : 'text-lg sm:text-xl font-semibold leading-tight'
-                  }
-                >
+                <h3 className="font-display font-bold text-ink leading-tight text-base">
                   {artifact.title}
                 </h3>
                 {statusLabel ? (
-                  <span
-                    className={
-                      variant === 'timeline'
-                        ? 'whitespace-nowrap rounded-full border border-slate-300 px-2 py-0.5 text-xs text-slate-700 dark:border-white/30 dark:text-slate-200'
-                        : 'whitespace-nowrap rounded-full border border-slate-300 dark:border-slate-600 px-2 py-0.5 text-xs text-slate-600 dark:text-slate-300'
-                    }
-                  >
+                  <span className="whitespace-nowrap border border-line font-mono px-2 py-0.5 text-[11px] text-ink-subtle">
                     {statusLabel}
                   </span>
                 ) : null}
               </div>
 
-              <p
-                className={
-                  variant === 'timeline'
-                    ? 'text-sm text-slate-700 leading-relaxed mb-4 dark:text-slate-200/85'
-                    : 'text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-4 sm:mb-5'
-                }
-              >
+              <p className="font-body text-sm text-ink-muted leading-relaxed mb-4">
                 {artifact.description}
               </p>
-              <div
-                className={
-                  variant === 'timeline'
-                    ? 'inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-sky-700 dark:text-sky-200'
-                    : 'inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-orange-600 dark:text-orange-400'
-                }
-              >
+              <div className="inline-flex items-center gap-1 font-mono text-xs text-accent hover:text-accent-strong transition-colors">
                 Open artifact
                 <ExternalLink className="w-3 h-3" />
               </div>
@@ -189,19 +156,18 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
         <section
           id={sectionId}
           aria-labelledby={`${sectionId}-title`}
-          className="py-12 sm:py-16 md:py-20 bg-white dark:bg-slate-900 text-slate-900 dark:text-white"
+          className="py-section bg-surface text-ink"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8 sm:mb-12">
               <h2
                 id={`${sectionId}-title`}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
+                className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ink mb-3 sm:mb-4"
+                style={{ fontStretch: '125%' }}
               >
-                <span className="text-orange-500 dark:text-orange-400">
-                  {title}
-                </span>
+                <span className="text-accent">{title}</span>
               </h2>
-              <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg max-w-3xl">
+              <p className="font-body text-ink-muted text-base sm:text-lg max-w-3xl">
                 {description}
               </p>
             </div>
@@ -209,12 +175,14 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
           </div>
         </section>
       )}
-      <YamlViewerDialog
-        isOpen={Boolean(yamlDialogPath)}
-        filePath={yamlDialogPath}
-        title="Swagger OpenAPI YAML"
-        onClose={() => setYamlDialogPath(null)}
-      />
+      <Suspense fallback={null}>
+        <YamlViewerDialog
+          isOpen={Boolean(yamlDialogPath)}
+          filePath={yamlDialogPath}
+          title="Swagger OpenAPI YAML"
+          onClose={() => setYamlDialogPath(null)}
+        />
+      </Suspense>
       <ImageViewerDialog
         isOpen={Boolean(imageDialogPath)}
         imagePath={imageDialogPath}
@@ -231,28 +199,28 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
               onClick={() => setExternalDialogArtifact(null)}
             >
               <div
-                className="flex w-full max-w-lg flex-col gap-5 rounded-2xl border border-slate-300 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900"
+                className="flex w-full max-w-lg flex-col gap-5 border border-line-strong bg-surface p-6"
                 onClick={(event) => event.stopPropagation()}
               >
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                  <h3 className="font-display font-bold text-lg text-ink">
                     Open external artifact
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  <p className="mt-2 font-body text-sm text-ink-muted">
                     You are about to open{' '}
-                    <span className="font-medium text-slate-800 dark:text-slate-100">
+                    <span className="font-medium text-ink">
                       {externalDialogArtifact.title}
                     </span>{' '}
                     in a new tab.
                   </p>
                 </div>
-                <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
+                <div className="border border-line bg-surface-sunken p-3 font-mono text-xs text-ink-subtle">
                   {externalDialogArtifact.href}
                 </div>
                 <div className="flex justify-end gap-3">
                   <button
                     type="button"
-                    className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                    className="border border-line px-4 py-2 font-mono text-sm text-ink-muted transition hover:border-ink hover:text-ink"
                     onClick={() => setExternalDialogArtifact(null)}
                   >
                     Cancel
@@ -261,7 +229,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
                     href={externalDialogArtifact.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-600"
+                    className="inline-flex items-center gap-2 bg-accent px-4 py-2 font-mono text-sm text-white transition hover:bg-accent-strong"
                     onClick={() => setExternalDialogArtifact(null)}
                   >
                     Open link

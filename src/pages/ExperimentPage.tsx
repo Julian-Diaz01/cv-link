@@ -35,7 +35,7 @@ const ExperimentPage: React.FC = () => {
             </div>
           }
         >
-          <Navigation profile={profile} variant="experiment" />
+          <Navigation profile={profile} />
 
           <main className="relative min-h-screen pt-20 sm:pt-24">
             <ExperimentHeroIntro />

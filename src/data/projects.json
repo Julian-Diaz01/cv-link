@@ -1,0 +1,166 @@
+[
+  {
+    "id": "konnektaro",
+    "name": "Konnektaro",
+    "shortTitle": "Konnektaro",
+    "tagline": "Real-time learning & networking PWA",
+    "narrative": [
+      "Joined Konnektaro as Frontend Engineer to build a mobile-first progressive web app connecting learners and instructors through live sessions, asynchronous content, and a real-time networking graph.",
+      "Delivered the complete client from scratch: React + Next.js + TypeScript on the frontend, Express/Node.js API, Firebase for auth and hosting, MongoDB for persistence. Integrated OpenAI Whisper for live transcript generation. Shipped CI/CD on Firebase from day one."
+    ],
+    "role": "Frontend Engineer",
+    "company": "Konnektaro",
+    "companyUrl": "https://konnektaro.com/",
+    "period": "May 2025 – Dec 2025",
+    "techStack": [
+      "React TS",
+      "Next.js",
+      "Express",
+      "Node.js",
+      "Tailwind CSS",
+      "Firebase",
+      "MongoDB",
+      "OpenAI Whisper"
+    ],
+    "links": [
+      { "title": "Live site", "url": "https://konnektaro.com/", "kind": "live" }
+    ],
+    "heroImage": {
+      "src": "/artifacts/konnektaro-full-architecture.drawio.png",
+      "alt": "Konnektaro full system architecture diagram"
+    },
+    "artifacts": [
+      {
+        "title": "Konnektaro architecture",
+        "description": "Konnektaro architecture.",
+        "thumbnailAlt": "Konnektaro architecture preview image",
+        "thumbnailSrc": "/artifacts/konnektaro-full-architecture.drawio.png",
+        "href": "/artifacts/konnektaro-full-architecture.drawio.png",
+        "kind": "imageDialog",
+        "status": "ready"
+      },
+      {
+        "title": "Konnektaro Figma v0.1",
+        "description": "Konnektaro Figma v0.1.",
+        "thumbnailAlt": "Konnektaro Figma v0.1 preview image",
+        "thumbnailSrc": "/artifacts/konnektaro-figma-thumbnail.png",
+        "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
+        "kind": "external",
+        "status": "ready"
+      }
+    ],
+    "jobRef": "konnektaro"
+  },
+  {
+    "id": "fleet-manager",
+    "name": "Fleet Manager",
+    "shortTitle": "Fleet Manager",
+    "tagline": "White-label fleet platform for 5 000+ vehicles",
+    "narrative": [
+      "At iomoto (ZF Group) I took a fleet management platform from early conception through to public beta — a white-label SaaS securing real-time telemetry access for more than 5 000 vehicles across enterprise clients.",
+      "Led the frontend from scratch: React, strict WCAG-compliant component library, Azure AD SSO, Jest + Cypress for full test coverage. The white-label architecture let fleet operators customise branding without forking the codebase."
+    ],
+    "role": "Frontend Engineer",
+    "company": "iomoto (ZF Group)",
+    "companyUrl": "https://www.linkedin.com/company/zf-group/",
+    "period": "Jun 2020 – Dec 2023",
+    "techStack": ["React", "TypeScript", "Jest", "Cypress", "Azure AD", "CSS", "Figma"],
+    "links": [],
+    "heroImage": {
+      "src": "/artifacts/iomoto-app-architecture.drawio.png",
+      "alt": "Fleet Manager application architecture diagram"
+    },
+    "artifacts": [
+      {
+        "title": "Architecture (draw.io)",
+        "description": "Architecture of the Fleet Manager app.",
+        "thumbnailAlt": "Architecture preview image",
+        "thumbnailSrc": "/artifacts/iomoto-app-architecture.drawio.png",
+        "href": "/artifacts/iomoto-app-architecture.drawio.png",
+        "kind": "imageDialog",
+        "status": "ready"
+      }
+    ],
+    "jobRef": "fleet-manager"
+  },
+  {
+    "id": "tenant-res",
+    "name": "Tenant RES",
+    "shortTitle": "Tenant RES",
+    "tagline": "SaaS for landlord–tenant management",
+    "narrative": [
+      "Side project: a multi-tenant SaaS letting landlords manage properties, tenancies, maintenance issues, and rent ledgers — while tenants have a self-service portal for documents and requests.",
+      "Designed the full data model (ERD), REST API surface (OpenAPI spec), and auth layer (Firebase token verification with scoped roles) before writing a single line of product UI. The Figma flows cover landlord and tenant journeys end-to-end."
+    ],
+    "role": "Founder / Full-stack",
+    "company": "Personal project",
+    "companyUrl": "",
+    "period": "2024 – present",
+    "techStack": ["React TS", "Firebase", "Node.js", "PostgreSQL", "Figma"],
+    "links": [],
+    "heroImage": {
+      "src": "/artifacts/tenant-RES.svg",
+      "alt": "Tenant RES database entity relationship diagram"
+    },
+    "artifacts": [
+      {
+        "title": "Product flows + wireframes (Figma)",
+        "description": "User journeys for landlord and tenant, plus MVP screen wireframes.",
+        "thumbnailAlt": "Wireframe preview of the landlord and tenant dashboard flows",
+        "thumbnailSrc": "/artifacts/tenant-RES-thumbnail.png",
+        "href": "https://www.figma.com/make/WyujU11S6MTpYGPirPZ7hG/Landlord-Tenant-Management-SaaS?t=aKpD0ox9JBs6A9kp-1",
+        "kind": "external",
+        "status": "inProgress"
+      },
+      {
+        "title": "Database ERD (draw.io)",
+        "description": "Tables, relations, and how data is stored (tenancies, ledger, issues, docs).",
+        "thumbnailAlt": "Database entity relationship diagram preview",
+        "thumbnailSrc": "/artifacts/tenant-RES.svg",
+        "href": "/artifacts/tenant-RES.svg",
+        "kind": "imageDialog",
+        "status": "ready"
+      },
+      {
+        "title": "API + Auth design",
+        "description": "Firebase token verification, scoping rules, and endpoints (Swagger once running).",
+        "thumbnailAlt": "API documentation preview image",
+        "thumbnailSrc": "/artifacts/tenant-RES-openapi.png",
+        "href": "/artifacts/tenant-RES-OpenAPI.yaml",
+        "kind": "yamlDialog",
+        "status": "planned"
+      }
+    ]
+  },
+  {
+    "id": "portfolio",
+    "name": "This Portfolio",
+    "shortTitle": "Portfolio",
+    "tagline": "Engineering portfolio you can inspect",
+    "narrative": [
+      "Built to be its own exhibit: a Vite + React + TypeScript SPA deployed to Firebase Hosting, styled with Tailwind v4 CSS-first tokens, and backed by Sanity CMS so content is editable without a redeploy.",
+      "The Schematic visual direction — drafting-sheet white, Archivo Expanded headings, Sometype Mono data labels, hairline rules — treats the UI itself as an engineering artefact. Architecture diagram below."
+    ],
+    "role": "Designer / Engineer",
+    "company": "Personal project",
+    "companyUrl": "",
+    "period": "2024 – present",
+    "techStack": ["Vite", "React TS", "Tailwind v4", "Firebase", "Sanity CMS", "Three.js"],
+    "links": [],
+    "heroImage": {
+      "src": "/artifacts/cv-app-architecture.drawio.png",
+      "alt": "Portfolio application architecture diagram"
+    },
+    "artifacts": [
+      {
+        "title": "Architecture (draw.io)",
+        "description": "Architecture of this portfolio app.",
+        "thumbnailAlt": "Architecture preview image",
+        "thumbnailSrc": "/artifacts/cv-app-architecture.drawio.png",
+        "href": "/artifacts/cv-app-architecture.drawio.png",
+        "kind": "imageDialog",
+        "status": "ready"
+      }
+    ]
+  }
+]
