@@ -186,14 +186,14 @@
     "shortTitle": "Portfolio",
     "tagline": "Engineering portfolio you can inspect",
     "narrative": [
-      "Built to be its own exhibit: a Vite + React + TypeScript SPA deployed to Firebase Hosting, styled with Tailwind v4 CSS-first tokens, and backed by Sanity CMS so content is editable without a redeploy.",
+      "Built to be its own exhibit: a Vite + React + TypeScript SPA deployed to Firebase Hosting, styled with Tailwind v4 CSS-first tokens.",
       "The Schematic visual direction — drafting-sheet white, Archivo Expanded headings, Sometype Mono data labels, hairline rules — treats the UI itself as an engineering artefact. Architecture diagram below."
     ],
     "role": "Designer / Engineer",
     "company": "Personal project",
     "companyUrl": "",
     "period": "2024 – present",
-    "techStack": ["Vite", "React TS", "Tailwind v4", "Firebase", "Sanity CMS", "Three.js"],
+    "techStack": ["Vite", "React TS", "Tailwind v4", "Firebase", "Three.js"],
     "links": [],
     "heroImage": {
       "src": "/artifacts/cv-app-architecture.drawio.png",

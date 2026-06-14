@@ -31,10 +31,6 @@ pnpm install
 pnpm dev
 ```
 
-## CMS (Sanity) Setup
-
-This project reads Sanity config from env vars: `VITE_SANITY_PROJECT_ID` and `VITE_SANITY_DATASET`.
-
 1. Create local env file by copying `.env.example` to `.env.local`:
 
 ```bash
@@ -43,18 +39,6 @@ cp .env.example .env.local
 
 # Windows PowerShell
 Copy-Item .env.example .env.local
-```
-
-2. Start Sanity Studio:
-
-```bash
-pnpm sanity:dev
-```
-
-3. Deploy Studio updates:
-
-```bash
-pnpm sanity:deploy
 ```
 
 ## 🔨 Build
@@ -68,7 +52,6 @@ pnpm build
 This project uses separate deployment targets:
 
 - Portfolio app: Firebase Hosting
-- Sanity Studio: Sanity hosting (`sanity deploy`)
 
 ```bash
 pnpm build
