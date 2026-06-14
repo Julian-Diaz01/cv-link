@@ -84,6 +84,54 @@
     "jobRef": "fleet-manager"
   },
   {
+    "id": "dita",
+    "name": "DiTA",
+    "shortTitle": "DiTA",
+    "tagline": "Digital maturity assessment with radar chart and PDF report",
+    "narrative": [
+      "Built at a hackathon implementing the official DiTA working-group framework: a fully browser-based self-assessment that walks organisations through 24 questions across six dimensions — Organisation, Processes, Data, Technology, Strategy, and Implementation — returning a maturity score, per-dimension radar chart, and a downloadable PDF report for leadership review. No server, no account; all answers live in localStorage.",
+      "Chose Next.js 15 App Router for file-based routing across the sequential assessment flow, next-intl for bilingual DE/EN support with German as the authoritative content source, Zustand to carry state across pages, Recharts for the radar visualisation, and @react-pdf/renderer for the client-side PDF export. shadcn/ui with Tailwind CSS kept the component layer fast to build while shipping a polished UI. Deployed to Vercel with analytics from day one."
+    ],
+    "role": "Product Engineer",
+    "company": "Hackathon project",
+    "companyUrl": "",
+    "period": "May 2026",
+    "techStack": ["Next.js 15", "TypeScript", "Tailwind CSS", "shadcn/ui", "Zustand", "Recharts", "react-pdf/renderer", "next-intl", "Vercel"],
+    "links": [
+      { "title": "Live site", "url": "https://ditatest.vercel.app", "kind": "live" },
+      { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/DiTA", "kind": "repo" }
+    ],
+    "heroImage": {
+      "src": "",
+      "alt": "DiTA assessment results showing radar chart and maturity scores across six dimensions"
+    },
+    "artifacts": []
+  },
+  {
+    "id": "rs-roguelike",
+    "name": "GieliRogue",
+    "shortTitle": "GieliRogue",
+    "tagline": "OSRS-themed browser roguelike built in React",
+    "narrative": [
+      "GieliRogue is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler — zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
+      "Built a custom sprite pipeline: a TypeScript manifest script fetches and maps OSRS wiki assets at build time, keeping art sourcing reproducible without checking binaries into the repo. The entire game runs in the browser with no backend. Deployed to Vercel."
+    ],
+    "role": "Designer / Engineer",
+    "company": "Personal project",
+    "companyUrl": "",
+    "period": "Jun 2026 – present",
+    "techStack": ["React", "TypeScript", "Vite", "Vercel"],
+    "links": [
+      { "title": "Live site", "url": "https://rs-rougelike.vercel.app", "kind": "live" },
+      { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/rs-rougelike", "kind": "repo" }
+    ],
+    "heroImage": {
+      "src": "",
+      "alt": "GieliRogue gameplay screenshot showing OSRS-themed dungeon crawler"
+    },
+    "artifacts": []
+  },
+  {
     "id": "tenant-res",
     "name": "Tenant RES",
     "shortTitle": "Tenant RES",

@@ -85,14 +85,6 @@ export interface Artifact {
   status: ArtifactStatus
 }
 
-export interface ProjectArtifactsGroup {
-  id: string
-  projectName: string
-  shortTitle: string
-  description: string
-  artifacts: Artifact[]
-}
-
 export interface Profile {
   firstName: string
   lastName: string

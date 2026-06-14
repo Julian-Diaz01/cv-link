@@ -58,9 +58,6 @@ importers:
       sanity:
         specifier: ^3.70.0
         version: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@25.9.0)(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(immer@10.2.0)(jiti@2.7.0)(lightningcss@1.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)(yaml@2.9.0)
-      styled-components:
-        specifier: ^6.4.1
-        version: 6.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       swagger-ui-react:
         specifier: ^5.31.2
         version: 5.32.6(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
