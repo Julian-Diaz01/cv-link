@@ -102,7 +102,7 @@
       { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/DiTA", "kind": "repo" }
     ],
     "heroImage": {
-      "src": "",
+      "src": "/artifacts/dita-thumbnail.png",
       "alt": "DiTA assessment results showing radar chart and maturity scores across six dimensions"
     },
     "artifacts": []
@@ -126,7 +126,7 @@
       { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/rs-rougelike", "kind": "repo" }
     ],
     "heroImage": {
-      "src": "",
+      "src": "/artifacts/rs-roguelike-thumbnail.png",
       "alt": "GieliRogue gameplay screenshot showing OSRS-themed dungeon crawler"
     },
     "artifacts": []
