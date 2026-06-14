@@ -26,9 +26,11 @@ const HomeHero: React.FC<HomeHeroProps> = ({ profile }) => (
         fontSize: 'clamp(3rem, 10vw, 9rem)',
       }}
     >
-      WORK YOU
+      Projects
       <br />
-      CAN INSPECT
+      made
+      <br />
+      BY . . . . . ME
     </h1>
 
     <p className="font-body text-ink-muted max-w-2xl text-lg mb-10 leading-relaxed">

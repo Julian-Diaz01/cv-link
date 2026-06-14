@@ -1,87 +1,27 @@
 [
   {
-    "id": "konnektaro",
-    "name": "Konnektaro",
-    "shortTitle": "Konnektaro",
-    "tagline": "Real-time learning & networking PWA",
+    "id": "rs-roguelike",
+    "name": "GieliRogue",
+    "shortTitle": "GieliRogue",
+    "tagline": "OSRS-themed browser roguelike built in React",
     "narrative": [
-      "Joined Konnektaro as Frontend Engineer to build a mobile-first progressive web app connecting learners and instructors through live sessions, asynchronous content, and a real-time networking graph.",
-      "Delivered the complete client from scratch: React + Next.js + TypeScript on the frontend, Express/Node.js API, Firebase for auth and hosting, MongoDB for persistence. Integrated OpenAI Whisper for live transcript generation. Shipped CI/CD on Firebase from day one."
+      "GieliRogue is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler — zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
+      "Built a custom sprite pipeline: a TypeScript manifest script fetches and maps OSRS wiki assets at build time, keeping art sourcing reproducible without checking binaries into the repo. The entire game runs in the browser with no backend. Deployed to Vercel."
     ],
-    "role": "Frontend Engineer",
-    "company": "Konnektaro",
-    "companyUrl": "https://konnektaro.com/",
-    "period": "May 2025 – Dec 2025",
-    "techStack": [
-      "React TS",
-      "Next.js",
-      "Express",
-      "Node.js",
-      "Tailwind CSS",
-      "Firebase",
-      "MongoDB",
-      "OpenAI Whisper"
-    ],
+    "role": "Designer / Engineer",
+    "company": "Personal project",
+    "companyUrl": "",
+    "period": "Jun 2026 – present",
+    "techStack": ["React", "TypeScript", "Vite", "Vercel"],
     "links": [
-      { "title": "Live site", "url": "https://konnektaro.com/", "kind": "live" }
+      { "title": "Live site", "url": "https://rs-rougelike.vercel.app", "kind": "live" },
+      { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/rs-rougelike", "kind": "repo" }
     ],
     "heroImage": {
-      "src": "/artifacts/konnektaro-full-architecture.drawio.png",
-      "alt": "Konnektaro full system architecture diagram"
+      "src": "/artifacts/rs-roguelike-thumbnail.png",
+      "alt": "GieliRogue gameplay screenshot showing OSRS-themed dungeon crawler"
     },
-    "artifacts": [
-      {
-        "title": "Konnektaro architecture",
-        "description": "Konnektaro architecture.",
-        "thumbnailAlt": "Konnektaro architecture preview image",
-        "thumbnailSrc": "/artifacts/konnektaro-full-architecture.drawio.png",
-        "href": "/artifacts/konnektaro-full-architecture.drawio.png",
-        "kind": "imageDialog",
-        "status": "ready"
-      },
-      {
-        "title": "Konnektaro Figma v0.1",
-        "description": "Konnektaro Figma v0.1.",
-        "thumbnailAlt": "Konnektaro Figma v0.1 preview image",
-        "thumbnailSrc": "/artifacts/konnektaro-figma-thumbnail.png",
-        "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
-        "kind": "external",
-        "status": "ready"
-      }
-    ],
-    "jobRef": "konnektaro"
-  },
-  {
-    "id": "fleet-manager",
-    "name": "Fleet Manager",
-    "shortTitle": "Fleet Manager",
-    "tagline": "White-label fleet platform for 5 000+ vehicles",
-    "narrative": [
-      "At iomoto (ZF Group) I took a fleet management platform from early conception through to public beta — a white-label SaaS securing real-time telemetry access for more than 5 000 vehicles across enterprise clients.",
-      "Led the frontend from scratch: React, strict WCAG-compliant component library, Azure AD SSO, Jest + Cypress for full test coverage. The white-label architecture let fleet operators customise branding without forking the codebase."
-    ],
-    "role": "Frontend Engineer",
-    "company": "iomoto (ZF Group)",
-    "companyUrl": "https://www.linkedin.com/company/zf-group/",
-    "period": "Jun 2020 – Dec 2023",
-    "techStack": ["React", "TypeScript", "Jest", "Cypress", "Azure AD", "CSS", "Figma"],
-    "links": [],
-    "heroImage": {
-      "src": "/artifacts/iomoto-app-architecture.drawio.png",
-      "alt": "Fleet Manager application architecture diagram"
-    },
-    "artifacts": [
-      {
-        "title": "Architecture (draw.io)",
-        "description": "Architecture of the Fleet Manager app.",
-        "thumbnailAlt": "Architecture preview image",
-        "thumbnailSrc": "/artifacts/iomoto-app-architecture.drawio.png",
-        "href": "/artifacts/iomoto-app-architecture.drawio.png",
-        "kind": "imageDialog",
-        "status": "ready"
-      }
-    ],
-    "jobRef": "fleet-manager"
+    "artifacts": []
   },
   {
     "id": "dita",
@@ -108,28 +48,56 @@
     "artifacts": []
   },
   {
-    "id": "rs-roguelike",
-    "name": "GieliRogue",
-    "shortTitle": "GieliRogue",
-    "tagline": "OSRS-themed browser roguelike built in React",
+    "id": "konnektaro",
+    "name": "Konnektaro",
+    "shortTitle": "Konnektaro",
+    "tagline": "Real-time learning & networking PWA",
     "narrative": [
-      "GieliRogue is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler — zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
-      "Built a custom sprite pipeline: a TypeScript manifest script fetches and maps OSRS wiki assets at build time, keeping art sourcing reproducible without checking binaries into the repo. The entire game runs in the browser with no backend. Deployed to Vercel."
+      "Joined Konnektaro as Frontend Engineer to build a mobile-first progressive web app connecting learners and instructors through live sessions, asynchronous content, and a real-time networking graph.",
+      "Delivered the complete client from scratch: React + Next.js + TypeScript on the frontend, Express/Node.js API, Firebase for auth and hosting, MongoDB for persistence. Integrated OpenAI Whisper for live transcript generation. Shipped CI/CD on Firebase from day one."
     ],
-    "role": "Designer / Engineer",
-    "company": "Personal project",
-    "companyUrl": "",
-    "period": "Jun 2026 – present",
-    "techStack": ["React", "TypeScript", "Vite", "Vercel"],
+    "role": "Frontend Engineer",
+    "company": "Konnektaro",
+    "companyUrl": "https://konnektaro.com/",
+    "period": "May 2025 – Dec 2025",
+    "techStack": [
+      "React TS",
+      "Next.js",
+      "Express",
+      "Node.js",
+      "Tailwind CSS",
+      "Firebase",
+      "MongoDB",
+      "OpenAI Whisper"
+    ],
     "links": [
-      { "title": "Live site", "url": "https://rs-rougelike.vercel.app", "kind": "live" },
-      { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/rs-rougelike", "kind": "repo" }
+      { "title": "Live site", "url": "https://konnektaro.com/", "kind": "live" }
     ],
     "heroImage": {
-      "src": "/artifacts/rs-roguelike-thumbnail.png",
-      "alt": "GieliRogue gameplay screenshot showing OSRS-themed dungeon crawler"
+      "src": "/artifacts/konnektaro-figma-thumbnail.png",
+      "alt": "Konnektaro app interface — Figma design preview"
     },
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Konnektaro architecture",
+        "description": "Konnektaro architecture.",
+        "thumbnailAlt": "Konnektaro architecture preview image",
+        "thumbnailSrc": "/artifacts/konnektaro-full-architecture.drawio.png",
+        "href": "/artifacts/konnektaro-full-architecture.drawio.png",
+        "kind": "imageDialog",
+        "status": "ready"
+      },
+      {
+        "title": "Konnektaro Figma v0.1",
+        "description": "Konnektaro Figma v0.1.",
+        "thumbnailAlt": "Konnektaro Figma v0.1 preview image",
+        "thumbnailSrc": "/artifacts/konnektaro-figma-thumbnail.png",
+        "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
+        "kind": "external",
+        "status": "ready"
+      }
+    ],
+    "jobRef": "konnektaro"
   },
   {
     "id": "tenant-res",
@@ -147,8 +115,8 @@
     "techStack": ["React TS", "Firebase", "Node.js", "PostgreSQL", "Figma"],
     "links": [],
     "heroImage": {
-      "src": "/artifacts/tenant-RES.svg",
-      "alt": "Tenant RES database entity relationship diagram"
+      "src": "/artifacts/tenant-RES-thumbnail.png",
+      "alt": "Tenant RES — landlord and tenant dashboard wireframes"
     },
     "artifacts": [
       {
@@ -210,5 +178,62 @@
         "status": "ready"
       }
     ]
+  },
+  {
+    "id": "fleet-manager",
+    "name": "Fleet Manager",
+    "shortTitle": "Fleet Manager",
+    "tagline": "White-label fleet platform for 5 000+ vehicles",
+    "narrative": [
+      "At iomoto (ZF Group) I took a fleet management platform from early conception through to public beta — a white-label SaaS securing real-time telemetry access for more than 5 000 vehicles across enterprise clients.",
+      "Led the frontend from scratch: React, strict WCAG-compliant component library, Azure AD SSO, Jest + Cypress for full test coverage. The white-label architecture let fleet operators customise branding without forking the codebase."
+    ],
+    "role": "Frontend Engineer",
+    "company": "iomoto (ZF Group)",
+    "companyUrl": "https://www.linkedin.com/company/zf-group/",
+    "period": "Jun 2020 – Dec 2023",
+    "techStack": ["React", "TypeScript", "Jest", "Cypress", "Azure AD", "CSS", "Figma"],
+    "links": [],
+    "heroImage": {
+      "src": "/artifacts/iomoto-app-thumbnail.png",
+      "alt": "Fleet Manager app interface preview"
+    },
+    "artifacts": [
+      {
+        "title": "Architecture (draw.io)",
+        "description": "Architecture of the Fleet Manager app.",
+        "thumbnailAlt": "Architecture preview image",
+        "thumbnailSrc": "/artifacts/iomoto-app-architecture.drawio.png",
+        "href": "/artifacts/iomoto-app-architecture.drawio.png",
+        "kind": "imageDialog",
+        "status": "ready"
+      }
+    ],
+    "jobRef": "fleet-manager"
+  },
+  {
+    "id": "lity",
+    "name": "Lity",
+    "shortTitle": "Lity",
+    "tagline": "B2C automotive sales app for electric vehicle discovery",
+    "narrative": [
+      "At iomoto I joined the mobile team to build Lity — a Flutter app that helps drivers figure out whether an electric vehicle fits their life. Users connect real driving data, and the app runs it against EV specs to surface a fit score and direct comparisons against virtual EVs.",
+      "Owned the garage feature end-to-end and managed the login flow. Contributed across the main app and wrote unit tests throughout. Shipped to the Apple App Store."
+    ],
+    "role": "Mobile Developer",
+    "company": "iomoto",
+    "companyUrl": "https://lity.io/",
+    "period": "Jan 2023 – Dec 2023",
+    "techStack": ["Flutter", "Dart", "Azure DevOps", "Figma", "Git"],
+    "links": [
+      { "title": "Lity", "url": "https://lity.io/", "kind": "live" },
+      { "title": "App Store", "url": "https://apps.apple.com/ch/app/lity/id6448170700", "kind": "live" }
+    ],
+    "heroImage": {
+      "src": "/artifacts/iomoto-mobile-thumbnail.png",
+      "alt": "Lity mobile app interface preview"
+    },
+    "artifacts": [],
+    "jobRef": "lity"
   }
 ]

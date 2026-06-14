@@ -61,6 +61,7 @@
     "title": "Mobile Developer",
     "subTitle": "iomoto",
     "cardLink": "https://www.linkedin.com/company/zf-group/",
+    "projectId": "lity",
     "description": "Developed a B2C automotive sales app. Utilized user data to assess electric vehicle fit. Engineered virtual electric vehicle for direct comparison. Led garage feature development, ensuring user-centricity. Managed login flow for security. Contributed to main app and conducted unit testing.",
     "chips": [
       "Flutter",
