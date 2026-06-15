@@ -14,7 +14,11 @@
     "period": "Jun 2026 – present",
     "techStack": ["React", "TypeScript", "Vite", "Vercel"],
     "links": [
-      { "title": "Live site", "url": "https://rs-rougelike.vercel.app", "kind": "live" }
+      {
+        "title": "Live site",
+        "url": "https://rs-rougelike.vercel.app",
+        "kind": "live"
+      }
     ],
     "heroImage": {
       "src": "/artifacts/rs-roguelike-thumbnail.png",
@@ -35,10 +39,28 @@
     "company": "Hackathon project",
     "companyUrl": "",
     "period": "May 2026",
-    "techStack": ["Next.js 15", "TypeScript", "Tailwind CSS", "shadcn/ui", "Zustand", "Recharts", "react-pdf/renderer", "next-intl", "Vercel"],
+    "techStack": [
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Zustand",
+      "Recharts",
+      "react-pdf/renderer",
+      "next-intl",
+      "Vercel"
+    ],
     "links": [
-      { "title": "Live site", "url": "https://ditatest.vercel.app", "kind": "live" },
-      { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/DiTA", "kind": "repo" }
+      {
+        "title": "Live site",
+        "url": "https://ditatest.vercel.app",
+        "kind": "live"
+      },
+      {
+        "title": "GitHub",
+        "url": "https://github.com/Julian-Diaz01/DiTA",
+        "kind": "repo"
+      }
     ],
     "heroImage": {
       "src": "/artifacts/dita-thumbnail.png",
@@ -70,9 +92,17 @@
       "OpenAI Whisper"
     ],
     "links": [
-      { "title": "Live site", "url": "https://konnektaro.com/", "kind": "live" },
+      {
+        "title": "Live site",
+        "url": "https://konnektaro.com/",
+        "kind": "live"
+      },
       { "title": "App", "url": "https://konnektaro.web.app/", "kind": "live" },
-      { "title": "Admin", "url": "https://konnektaro-admin.web.app/admin-login", "kind": "live" }
+      {
+        "title": "Admin",
+        "url": "https://konnektaro-admin.web.app/admin-login",
+        "kind": "live"
+      }
     ],
     "heroImage": {
       "src": "/artifacts/konnektaro-figma-thumbnail.png",
@@ -106,9 +136,21 @@
     "period": "January 2026 – present",
     "techStack": ["React TS", "Firebase", "Node.js", "PostgreSQL", "Figma"],
     "links": [
-      { "title": "Landlord Hub", "url": "https://github.com/Julian-Diaz01/landlord-hub", "kind": "repo" },
-      { "title": "Tenant Hub", "url": "https://github.com/Julian-Diaz01/tenant-hub", "kind": "repo" },
-      { "title": "Backend", "url": "https://github.com/Julian-Diaz01/konnektaro-landlord-be", "kind": "repo" }
+      {
+        "title": "Landlord Hub",
+        "url": "https://github.com/Julian-Diaz01/landlord-hub",
+        "kind": "repo"
+      },
+      {
+        "title": "Tenant Hub",
+        "url": "https://github.com/Julian-Diaz01/tenant-hub",
+        "kind": "repo"
+      },
+      {
+        "title": "Backend",
+        "url": "https://github.com/Julian-Diaz01/konnektaro-landlord-be",
+        "kind": "repo"
+      }
     ],
     "heroImage": {
       "src": "/artifacts/tenant-RES-thumbnail.png",
@@ -148,7 +190,15 @@
     "company": "iomoto (ZF Group)",
     "companyUrl": "https://www.linkedin.com/company/zf-group/",
     "period": "Jun 2020 – Dec 2023",
-    "techStack": ["React", "TypeScript", "Jest", "Cypress", "Azure AD", "CSS", "Figma"],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Jest",
+      "Cypress",
+      "Azure AD",
+      "CSS",
+      "Figma"
+    ],
     "links": [],
     "heroImage": {
       "src": "/artifacts/iomoto-app-thumbnail.png",
@@ -183,7 +233,11 @@
     "techStack": ["Flutter", "Dart", "Azure DevOps", "Figma", "Git"],
     "links": [
       { "title": "Lity", "url": "https://lity.io/", "kind": "live" },
-      { "title": "App Store", "url": "https://apps.apple.com/ch/app/lity/id6448170700", "kind": "live" }
+      {
+        "title": "App Store",
+        "url": "https://apps.apple.com/ch/app/lity/id6448170700",
+        "kind": "live"
+      }
     ],
     "heroImage": {
       "src": "/artifacts/iomoto-mobile-thumbnail.png",

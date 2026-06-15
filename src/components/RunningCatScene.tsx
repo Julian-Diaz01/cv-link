@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, useRef } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Model } from './Model.tsx'
 
@@ -42,10 +42,9 @@ export default function RunningCatScene() {
         const scrolledPastFullView =
           window.scrollY -
           (containerRef.current.offsetTop - windowHeight + rect.height)
-        const scrollRange = windowHeight // Use viewport height as the scroll range for animation
         const progress = Math.max(
           0,
-          Math.min(1, scrolledPastFullView / scrollRange),
+          Math.min(1, scrolledPastFullView / windowHeight),
         )
 
         setScrollProgress(progress)
@@ -230,7 +229,7 @@ export default function RunningCatScene() {
   return (
     <div
       ref={containerRef}
-      className="w-full h-[200px] sm:h-[250px] md:h-[300px] relative rounded-lg overflow-hidden"
+      className="w-full h-50 sm:h-62.5 md:h-75 relative rounded-lg overflow-hidden"
     >
       <Canvas
         key="running-cat-scene"
@@ -259,7 +258,7 @@ export default function RunningCatScene() {
               meshOpacity={0.05}
               particleSize={0.2}
               sampleRate={1}
-              animated={isDark ? true : false}
+              animated={isDark}
               showMesh={true}
               rotation={modelRotation}
               autoRotate={false}
