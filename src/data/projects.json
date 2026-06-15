@@ -5,7 +5,7 @@
     "shortTitle": "GieliRogue",
     "tagline": "OSRS-themed browser roguelike built in React",
     "narrative": [
-      "GieliRogue is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler — zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
+      "GieliRogue is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler, zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
       "Built a custom sprite pipeline: a TypeScript manifest script fetches and maps OSRS wiki assets at build time, keeping art sourcing reproducible without checking binaries into the repo. The entire game runs in the browser with no backend. Deployed to Vercel."
     ],
     "role": "Designer / Engineer",
@@ -29,7 +29,7 @@
     "shortTitle": "DiTA",
     "tagline": "Digital maturity assessment with radar chart and PDF report",
     "narrative": [
-      "Built at a hackathon implementing the official DiTA working-group framework: a fully browser-based self-assessment that walks organisations through 24 questions across six dimensions — Organisation, Processes, Data, Technology, Strategy, and Implementation — returning a maturity score, per-dimension radar chart, and a downloadable PDF report for leadership review. No server, no account; all answers live in localStorage.",
+      "Built at a hackathon implementing the official DiTA working-group framework: a fully browser-based self-assessment that walks organisations through 24 questions across six dimensions, Organisation, Processes, Data, Technology, Strategy, and Implementation, returning a maturity score, per-dimension radar chart, and a downloadable PDF report for leadership review. No server, no account; all answers live in localStorage.",
       "Chose Next.js 15 App Router for file-based routing across the sequential assessment flow, next-intl for bilingual DE/EN support with German as the authoritative content source, Zustand to carry state across pages, Recharts for the radar visualisation, and @react-pdf/renderer for the client-side PDF export. shadcn/ui with Tailwind CSS kept the component layer fast to build while shipping a polished UI. Deployed to Vercel with analytics from day one."
     ],
     "role": "Product Engineer",
@@ -77,7 +77,7 @@
     ],
     "heroImage": {
       "src": "/artifacts/konnektaro-figma-thumbnail.png",
-      "alt": "Konnektaro app interface — Figma design preview"
+      "alt": "Konnektaro app interface, Figma design preview"
     },
     "artifacts": [
       {
@@ -98,7 +98,7 @@
     "shortTitle": "Tenant RES",
     "tagline": "SaaS for landlord–tenant management",
     "narrative": [
-      "Side project: a multi-tenant SaaS letting landlords manage properties, tenancies, maintenance issues, and rent ledgers — while tenants have a self-service portal for documents and requests.",
+      "Side project: a multi-tenant SaaS letting landlords manage properties, tenancies, maintenance issues, and rent ledgers, while tenants have a self-service portal for documents and requests.",
       "Designed the full data model (ERD), REST API surface (OpenAPI spec), and auth layer (Firebase token verification with scoped roles) before writing a single line of product UI. The Figma flows cover landlord and tenant journeys end-to-end."
     ],
     "role": "Founder / Full-stack",
@@ -109,7 +109,7 @@
     "links": [],
     "heroImage": {
       "src": "/artifacts/tenant-RES-thumbnail.png",
-      "alt": "Tenant RES — landlord and tenant dashboard wireframes"
+      "alt": "Tenant RES, landlord and tenant dashboard wireframes"
     },
     "artifacts": [
       {
@@ -138,7 +138,7 @@
     "shortTitle": "Fleet Manager",
     "tagline": "White-label fleet platform for 5 000+ vehicles",
     "narrative": [
-      "At iomoto (ZF Group) I took a fleet management platform from early conception through to public beta — a white-label SaaS securing real-time telemetry access for more than 5 000 vehicles across enterprise clients.",
+      "At iomoto (ZF Group) I took a fleet management platform from early conception through to public beta, a white-label SaaS securing real-time telemetry access for more than 5 000 vehicles across enterprise clients.",
       "Led the frontend from scratch: React, strict WCAG-compliant component library, Azure AD SSO, Jest + Cypress for full test coverage. The white-label architecture let fleet operators customise branding without forking the codebase."
     ],
     "role": "Frontend Engineer",
@@ -170,7 +170,7 @@
     "shortTitle": "Lity",
     "tagline": "B2C automotive sales app for electric vehicle discovery",
     "narrative": [
-      "At iomoto I joined the mobile team to build Lity — a Flutter app that helps drivers figure out whether an electric vehicle fits their life. Users connect real driving data, and the app runs it against EV specs to surface a fit score and direct comparisons against virtual EVs.",
+      "At iomoto I joined the mobile team to build Lity, a Flutter app that helps drivers figure out whether an electric vehicle fits their life. Users connect real driving data, and the app runs it against EV specs to surface a fit score and direct comparisons against virtual EVs.",
       "Owned the garage feature end-to-end and managed the login flow. Contributed across the main app and wrote unit tests throughout. Shipped to the Apple App Store."
     ],
     "role": "Mobile Developer",
@@ -196,7 +196,7 @@
     "tagline": "Engineering portfolio you can inspect",
     "narrative": [
       "Built to be its own exhibit: a Vite + React + TypeScript SPA deployed to Firebase Hosting, styled with Tailwind v4 CSS-first tokens.",
-      "The Schematic visual direction — drafting-sheet white, Archivo Expanded headings, Sometype Mono data labels, hairline rules — treats the UI itself as an engineering artefact. Architecture diagram below."
+      "The Schematic visual direction, drafting-sheet white, Archivo Expanded headings, Sometype Mono data labels, hairline rules, treats the UI itself as an engineering artefact. Architecture diagram below."
     ],
     "role": "Designer / Engineer",
     "company": "Personal project",
