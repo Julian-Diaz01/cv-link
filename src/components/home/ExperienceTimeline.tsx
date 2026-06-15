@@ -42,7 +42,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ jobs }) => (
               {job.chips.map((chip) => (
                 <span
                   key={chip}
-                  className="font-mono text-[11px] border border-line text-ink-subtle px-1.5 py-0.5"
+                  className="font-mono text-[11px] border border-ink-subtle text-ink-muted px-1.5 py-0.5"
                 >
                   {chip}
                 </span>

@@ -65,10 +65,13 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
             fontSize: 'clamp(2rem, 6vw, 4rem)',
           }}
         >
-          Let's Work Together
+          Open for the Right Role
         </h2>
         <p className="font-body text-lg mb-6 sm:mb-8 opacity-70">
-          Have a project in mind? Let's create something.
+          Senior frontend and product engineering, Berlin or remote. Five years
+          shipping enterprise SaaS, real-time platforms, and mobile. Best before
+          the spec is finished: greenfield product, cross-functional teams, real
+          constraints.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
@@ -100,7 +103,7 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
             className="font-mono text-xs flex items-center justify-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
             onMouseEnter={handleEmailDisplayClick}
           >
-            <Mail className="w-3.5 h-3.5 flex-shrink-0" />
+            <Mail className="w-3.5 h-3.5 shrink-0" />
             <span className="break-all">{displayedEmail}</span>
           </a>
         </div>

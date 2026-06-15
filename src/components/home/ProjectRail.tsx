@@ -41,7 +41,7 @@ const ProjectRail: React.FC<ProjectRailProps> = ({ projects }) => {
         <a
           key={project.id}
           href={`#project-${project.id}`}
-          className={`flex items-center gap-2 font-mono text-xs py-2 border-l-2 pl-3 transition-colors ${
+          className={`flex items-center gap-2 font-mono text-xs py-2 border-l pl-3 transition-colors ${
             activeId === project.id
               ? 'border-accent text-accent'
               : 'border-line text-ink-subtle hover:text-ink hover:border-ink-subtle'

@@ -71,7 +71,13 @@ function HomePageInner() {
         </section>
 
         <Suspense
-          fallback={<div className="h-64 border-t border-b border-line" />}
+          fallback={
+            <div className="h-64 border-t border-b border-line flex items-center justify-center">
+              <span className="font-mono text-[10px] text-ink-subtle uppercase tracking-widest">
+                Loading Scene 3D
+              </span>
+            </div>
+          }
         >
           <RunningCatScene />
         </Suspense>

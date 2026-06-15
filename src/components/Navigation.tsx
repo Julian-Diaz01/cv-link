@@ -21,7 +21,7 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
   const activeLinkClass = 'text-ink'
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-line">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface border-b border-line">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link
@@ -71,6 +71,17 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
               }
             >
               CV.PDF
+            </a>
+            <a
+              href="/#contact"
+              className="font-mono text-xs bg-accent text-white px-3 py-1.5 hover:bg-accent-strong transition-colors uppercase tracking-widest"
+              onClick={() =>
+                trackMetric('contact_button_click', {
+                  location: 'navigation_desktop',
+                })
+              }
+            >
+              Contact
             </a>
             <DarkModeToggle />
           </div>
@@ -135,6 +146,18 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
                 }}
               >
                 CV.PDF
+              </a>
+              <a
+                href="/#contact"
+                className="font-mono text-xs bg-accent text-white px-3 py-1.5 hover:bg-accent-strong transition-colors uppercase tracking-widest self-start"
+                onClick={() => {
+                  trackMetric('contact_button_click', {
+                    location: 'navigation_mobile',
+                  })
+                  closeMobileMenu()
+                }}
+              >
+                Contact
               </a>
             </div>
           </div>

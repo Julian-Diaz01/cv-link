@@ -10,7 +10,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ profile }) => (
   <header className="relative min-h-[85vh] flex flex-col justify-end pb-16 pt-32 px-6 md:px-12 max-w-7xl mx-auto">
     <div className="hidden md:block absolute top-24 right-6 text-right">
       <span className="font-mono text-[10px] text-ink-subtle tracking-widest uppercase">
-        PORTFOLIO — 2025
+        PORTFOLIO — 2026
       </span>
     </div>
 
