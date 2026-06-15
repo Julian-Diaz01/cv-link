@@ -95,17 +95,21 @@
     "id": "tenant-res",
     "name": "Tenant RES",
     "shortTitle": "Tenant RES",
-    "tagline": "SaaS for landlord–tenant management",
+    "tagline": "Two-app SaaS for landlord–tenant management",
     "narrative": [
-      "Side project: a multi-tenant SaaS letting landlords manage properties, tenancies, maintenance issues, and rent ledgers, while tenants have a self-service portal for documents and requests.",
-      "Designed the full data model (ERD), REST API surface (OpenAPI spec), and auth layer (Firebase token verification with scoped roles) before writing a single line of product UI. The Figma flows cover landlord and tenant journeys end-to-end."
+      "Side project built as two separate React apps sharing a single Node.js + PostgreSQL backend: Landlord Hub for property managers to handle tenancies, maintenance issues, and rent ledgers, and Tenant Hub for renters to access documents, submit requests, and track their account — each deployed independently with scoped Firebase auth.",
+      "Designed the full data model (ERD), REST API surface (OpenAPI spec), and auth layer (Firebase token verification with role-based scoping) before writing a single line of product UI. The Figma flows cover landlord and tenant journeys end-to-end."
     ],
-    "role": "Founder / Full-stack",
+    "role": "Product Developer",
     "company": "Personal project",
     "companyUrl": "",
     "period": "January 2026 – present",
     "techStack": ["React TS", "Firebase", "Node.js", "PostgreSQL", "Figma"],
-    "links": [],
+    "links": [
+      { "title": "Landlord Hub", "url": "https://github.com/Julian-Diaz01/landlord-hub", "kind": "repo" },
+      { "title": "Tenant Hub", "url": "https://github.com/Julian-Diaz01/tenant-hub", "kind": "repo" },
+      { "title": "Backend", "url": "https://github.com/Julian-Diaz01/konnektaro-landlord-be", "kind": "repo" }
+    ],
     "heroImage": {
       "src": "/artifacts/tenant-RES-thumbnail.png",
       "alt": "Tenant RES, landlord and tenant dashboard wireframes"
