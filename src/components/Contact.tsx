@@ -56,53 +56,59 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
     : obfuscateEmailDisplay(profile.email)
 
   return (
-    <section
-      id="contact"
-      className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-800 transition-colors duration-300"
-    >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white dark:text-slate-100">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-          Let's Work Together
+    <section id="contact" className="py-section bg-ink text-surface">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          className="font-display font-black uppercase leading-none mb-4 sm:mb-6"
+          style={{
+            fontStretch: '125%',
+            fontSize: 'clamp(2rem, 6vw, 4rem)',
+          }}
+        >
+          Open for the Right Role
         </h2>
-        <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-orange-100 dark:text-orange-200">
-          Have a project in mind? Let's create something amazing together.
+        <p className="font-body text-lg mb-6 sm:mb-8 opacity-70">
+          Senior frontend and product engineering, Berlin or remote. Five years
+          shipping enterprise SaaS, real-time platforms, and mobile. Best before
+          the spec is finished: greenfield product, cross-functional teams, real
+          constraints.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
           <a
             href="#"
             onClick={handleEmailClick}
-            className="bg-white dark:bg-slate-900 text-orange-600 dark:text-orange-400 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:scale-105 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
+            className="font-mono text-sm bg-accent text-white px-6 py-3 border border-accent hover:bg-accent-strong transition-colors flex items-center justify-center gap-2"
           >
-            <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Mail className="w-4 h-4" />
             Get In Touch
           </a>
           <a
             href="/julian_diaz_cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-2 border-white dark:border-slate-200 text-white dark:text-slate-100 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-white/10 dark:hover:bg-slate-800/30 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
+            className="font-mono text-sm border border-surface/40 text-surface px-6 py-3 hover:border-surface transition-colors flex items-center justify-center gap-2"
             onClick={() =>
               trackMetric('cv_button_click', { location: 'contact_section' })
             }
           >
-            View Resume
+            CV.PDF
           </a>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 text-xs sm:text-sm">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
           <a
             href="#"
             onClick={handleEmailClick}
-            className="flex items-center justify-center gap-2 hover:text-orange-100 dark:hover:text-orange-300 transition break-all cursor-pointer"
+            className="font-mono text-xs flex items-center justify-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
             onMouseEnter={handleEmailDisplayClick}
           >
-            <Mail className="w-4 h-4 flex-shrink-0" />
+            <Mail className="w-3.5 h-3.5 shrink-0" />
             <span className="break-all">{displayedEmail}</span>
           </a>
         </div>
 
-        <div className="flex gap-4 sm:gap-6 justify-center mt-8 sm:mt-12">
+        <div className="flex gap-4 sm:gap-6 justify-center mt-8 sm:mt-10">
           {profile.socialLinks.map((social, index) => {
             const IconComponent = iconMap[social.icon] || Github
 
@@ -112,10 +118,10 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/20 dark:bg-slate-800/50 rounded-full flex items-center justify-center hover:bg-white/30 dark:hover:bg-slate-700/60 transition"
+                className="w-10 h-10 border border-surface/30 flex items-center justify-center hover:border-surface opacity-60 hover:opacity-100 transition"
                 aria-label={social.name}
               >
-                <IconComponent className="w-5 h-5" />
+                <IconComponent className="w-4 h-4" />
               </a>
             )
           })}

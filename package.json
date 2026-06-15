@@ -11,15 +11,11 @@
     "lint:fix": "eslint . --fix",
     "reformat": "prettier --write .",
     "preview": "vite preview",
-    "deploy": "pnpm dlx firebase-tools deploy",
-    "sanity:dev": "sanity dev --port 3333",
-    "sanity:deploy": "sanity deploy",
-    "sanity:build": "sanity build --yes"
+    "deploy": "pnpm dlx firebase-tools deploy"
   },
   "dependencies": {
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
-    "@sanity/client": "^7.21.0",
     "@sentry/react": "^10.27.0",
     "dotenv": "^17.4.2",
     "firebase": "^12.3.0",
@@ -31,14 +27,14 @@
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.30.3",
-    "sanity": "^3.70.0",
-    "styled-components": "^6.4.1",
-    "swagger-ui-react": "^5.31.2",
+"swagger-ui-react": "^5.31.2",
     "three": "^0.171.0",
     "vite-plugin-eslint": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@fontsource-variable/archivo": "^5.2.8",
+    "@fontsource/sometype-mono": "^5.2.7",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^25.9.0",
     "@types/react": "^18.3.12",

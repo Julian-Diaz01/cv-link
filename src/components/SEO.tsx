@@ -22,8 +22,8 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Julian Diaz - Frontend Engineer Portfolio',
-  description = 'Building exceptional web experiences with modern technologies. Transforming ideas into elegant, performant applications.',
+  title = 'Julian Diaz — Frontend Engineer',
+  description = 'Case-study portfolio of Julian Diaz, Frontend Engineer in Berlin. Real-time PWAs, fleet platforms, and full-stack web applications — architecture diagrams and specs included.',
   keywords = 'frontend Engineer, Web Developer, React, TypeScript, JavaScript, Berlin, Full Stack Developer, Frontend Developer',
   author = 'Julian Diaz',
   ogTitle,

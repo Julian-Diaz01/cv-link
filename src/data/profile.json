@@ -1,10 +1,10 @@
 {
   "firstName": "Julian",
   "lastName": "Diaz",
-  "title": "Frontend Engineer",
+  "title": "Frontend & Product Engineer",
   "greeting": "Hallo! 👋",
   "bio": "Building exceptional web experiences with modern technologies. Transforming ideas into elegant, performant applications.",
-  "bioImpersonal": "Hi, I'm Julian, frontend Engineer focused on modern web applications. Experienced in structuring scalable frontend ar-chitectures, from modular monoliths to micro-frontend setups, and in applying SSG and SSR to balance perfor-mance, personalization and dynamic content. Experienced in integrating self-hosted AI services such as OpenAI Whisper and Ollama, and supporting reliable delivery through CI/CD pipelines and cloud-based deployments. Strong emphasis on user-centric design, real-time features, and clean, maintainable code.",
+  "bioImpersonal": "Five years shipping products across the stack, enterprise fleet SaaS running across 500+ vehicles at ZF Group, real-time learning platforms with live AI transcription, mobile apps in Flutter, and a steady stream of side projects in parallel. Frontend is home base. Product engineer is how I operate: I'll sketch the data model, design the component system, wire up CI, and ship. If there's a blank repo and a real problem, I'm interested.",
   "location": "Berlin, Germany",
   "email": "judadi1994@gmail.com",
   "website": "https://juliandiaz.web.app/",

@@ -11,6 +11,35 @@ export interface Job {
   description: string
   chips: string[]
   links?: Link[]
+  projectId?: string
+}
+
+export interface ProjectLink {
+  title: string
+  url: string
+  kind?: 'live' | 'repo' | 'figma' | 'store' | 'other'
+}
+
+export interface ProjectImage {
+  src: string
+  alt: string
+}
+
+export interface Project {
+  id: string
+  name: string
+  shortTitle: string
+  tagline: string
+  narrative: string[]
+  role: string
+  company: string
+  companyUrl: string
+  period: string
+  techStack: string[]
+  links: ProjectLink[]
+  heroImage: ProjectImage
+  artifacts: Artifact[]
+  jobRef?: string
 }
 
 export interface Education {
@@ -54,14 +83,6 @@ export interface Artifact {
   href?: string
   kind: ArtifactKind
   status: ArtifactStatus
-}
-
-export interface ProjectArtifactsGroup {
-  id: string
-  projectName: string
-  shortTitle: string
-  description: string
-  artifacts: Artifact[]
 }
 
 export interface Profile {

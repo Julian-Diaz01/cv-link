@@ -1,3 +1,103 @@
 @import 'tailwindcss';
 
+/* Dark variant — .dark class toggled on <html> by ThemeContext */
 @variant dark (&:where(.dark, .dark *));
+
+/* ─── Self-hosted typography ─────────────────────────────────────────── */
+
+/* Archivo — weight axis variable (100–900, normal stretch) */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('/fonts/archivo-variable.woff2') format('woff2');
+}
+
+/* Archivo — width axis variable (62%–125%, for expanded display headings) */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/fonts/archivo-variable-wdth.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sometype Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/sometype-mono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sometype Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/sometype-mono-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sometype Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/sometype-mono-700.woff2') format('woff2');
+}
+
+/* ─── Design tokens — Schematic (light default) ──────────────────────── */
+/* @theme registers these as Tailwind utilities:                          */
+/*   bg-surface, text-ink, border-line, font-mono, rounded-card, etc.    */
+/* Dark-mode overrides go in @layer base below — NOT inside @theme.      */
+@theme {
+  /* Surfaces */
+  --color-surface: oklch(0.985 0 0);
+  --color-surface-raised: oklch(0.97 0 0);
+  --color-surface-sunken: oklch(0.95 0 0);
+
+  /* Ink */
+  --color-ink: oklch(0.21 0.01 260);
+  --color-ink-muted: oklch(0.42 0.01 260);
+  --color-ink-subtle: oklch(0.62 0.01 260);
+
+  /* Accent — drafting-pen red */
+  --color-accent: oklch(0.55 0.21 27);
+  --color-accent-strong: oklch(0.45 0.22 27);
+  --color-accent-soft: oklch(0.85 0.08 27);
+
+  /* Lines / borders */
+  --color-line: oklch(0.87 0.005 260);
+  --color-line-strong: oklch(0.21 0.01 260);
+
+  /* Typography */
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+  --font-mono: 'Sometype Mono', monospace;
+
+  /* Layout */
+  --radius-card: 0px;
+  --spacing-section: 6rem;
+}
+
+/* ─── Dark-mode token overrides ──────────────────────────────────────── */
+/* MUST be outside @theme — inside @theme, Tailwind v4 generates         */
+/* junk utility classes for every override value.                         */
+@layer base {
+  .dark {
+    --color-surface: oklch(0.2 0.01 260);
+    --color-surface-raised: oklch(0.23 0.01 260);
+    --color-surface-sunken: oklch(0.17 0.01 260);
+    --color-ink: oklch(0.96 0.005 260);
+    --color-ink-muted: oklch(0.72 0.005 260);
+    --color-ink-subtle: oklch(0.52 0.01 260);
+    --color-accent: oklch(0.66 0.19 27);
+    --color-accent-strong: oklch(0.76 0.18 27);
+    --color-accent-soft: oklch(0.35 0.1 27);
+    --color-line: oklch(0.32 0.01 260);
+    --color-line-strong: oklch(0.96 0.005 260);
+  }
+}
