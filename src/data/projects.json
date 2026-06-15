@@ -1,11 +1,11 @@
 [
   {
     "id": "rs-roguelike",
-    "name": "GieliRogue",
-    "shortTitle": "GieliRogue",
+    "name": "OSRS Roguelike",
+    "shortTitle": "OSRS Roguelike",
     "tagline": "OSRS-themed browser roguelike built in React",
     "narrative": [
-      "GieliRogue is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler, zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
+      "OSRS Roguelike is a browser-based roguelike that transplants Old School RuneScape's visual world into a turn-based dungeon crawler, zone navigation, inventory management, and monster encounters running entirely client-side in React + TypeScript.",
       "Built a custom sprite pipeline: a TypeScript manifest script fetches and maps OSRS wiki assets at build time, keeping art sourcing reproducible without checking binaries into the repo. The entire game runs in the browser with no backend. Deployed to Vercel."
     ],
     "role": "Designer / Engineer",
@@ -14,12 +14,11 @@
     "period": "Jun 2026 – present",
     "techStack": ["React", "TypeScript", "Vite", "Vercel"],
     "links": [
-      { "title": "Live site", "url": "https://rs-rougelike.vercel.app", "kind": "live" },
-      { "title": "GitHub", "url": "https://github.com/Julian-Diaz01/rs-rougelike", "kind": "repo" }
+      { "title": "Live site", "url": "https://rs-rougelike.vercel.app", "kind": "live" }
     ],
     "heroImage": {
       "src": "/artifacts/rs-roguelike-thumbnail.png",
-      "alt": "GieliRogue gameplay screenshot showing OSRS-themed dungeon crawler"
+      "alt": "OSRS Roguelike gameplay screenshot showing OSRS-themed dungeon crawler"
     },
     "artifacts": []
   },

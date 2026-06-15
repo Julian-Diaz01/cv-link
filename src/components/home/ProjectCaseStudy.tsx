@@ -32,7 +32,7 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({
 }) => {
   const [imageOpen, setImageOpen] = useState(false)
   const isOdd = index % 2 !== 0
-  const dwgLabel = `DWG ${String(index + 1).padStart(2, '0')}/${String(total).padStart(2, '0')}`
+  const projectLabel = `Project ${String(index + 1).padStart(2, '0')}/${String(total).padStart(2, '0')}`
   const status = statusFromPeriod(project.period)
 
   const titleBlock = (
@@ -87,7 +87,7 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({
       <button
         type="button"
         onClick={() => setImageOpen(true)}
-        className="block w-full aspect-[4/3] bg-surface-sunken cursor-zoom-in overflow-hidden"
+        className="block w-full aspect-4/3 bg-surface-sunken cursor-zoom-in overflow-hidden"
         aria-label={`Open ${project.heroImage.alt} in full view`}
       >
         <img
@@ -174,10 +174,10 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({
       id={`project-${project.id}`}
       className="py-section border-b border-line scroll-mt-20"
     >
-      {/* DWG header */}
+      {/* Project header */}
       <div className="flex items-center gap-4 mb-10">
         <span className="font-mono text-[11px] text-ink-subtle shrink-0">
-          {dwgLabel}
+          {projectLabel}
         </span>
         <div className="flex-1 border-t border-line" />
         <span className="font-mono text-[11px] text-ink-subtle uppercase shrink-0">

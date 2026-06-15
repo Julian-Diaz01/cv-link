@@ -42,7 +42,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ profile }) => (
         href="#projects"
         className="font-mono text-sm bg-accent text-white px-6 py-3 border border-accent font-medium hover:bg-accent-strong transition-colors"
       >
-        VIEW DRAWINGS
+        VIEW PROJECTS
       </a>
       <a
         href="/julian_diaz_cv.pdf"

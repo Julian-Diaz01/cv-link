@@ -34,7 +34,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ jobs }) => (
                   href={`#project-${job.projectId}`}
                   className="font-mono text-xs text-accent hover:text-accent-strong transition-colors"
                 >
-                  view drawing ↑
+                  view project ↑
                 </a>
               )}
             </div>

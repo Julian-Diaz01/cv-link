@@ -35,7 +35,7 @@ const ProjectRail: React.FC<ProjectRailProps> = ({ projects }) => {
   return (
     <aside className="hidden xl:flex flex-col gap-0.5 sticky top-24 self-start w-40 shrink-0 pt-4">
       <span className="font-mono text-[10px] text-ink-subtle mb-4 uppercase tracking-widest">
-        Drawings
+        Projects
       </span>
       {projects.map((project, i) => (
         <a
