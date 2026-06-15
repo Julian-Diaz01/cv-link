@@ -71,7 +71,9 @@
       "OpenAI Whisper"
     ],
     "links": [
-      { "title": "Live site", "url": "https://konnektaro.com/", "kind": "live" }
+      { "title": "Live site", "url": "https://konnektaro.com/", "kind": "live" },
+      { "title": "App", "url": "https://konnektaro.web.app/", "kind": "live" },
+      { "title": "Admin", "url": "https://konnektaro-admin.web.app/admin-login", "kind": "live" }
     ],
     "heroImage": {
       "src": "/artifacts/konnektaro-figma-thumbnail.png",
@@ -85,15 +87,6 @@
         "thumbnailSrc": "/artifacts/konnektaro-full-architecture.drawio.png",
         "href": "/artifacts/konnektaro-full-architecture.drawio.png",
         "kind": "imageDialog",
-        "status": "ready"
-      },
-      {
-        "title": "Konnektaro Figma v0.1",
-        "description": "Konnektaro Figma v0.1.",
-        "thumbnailAlt": "Konnektaro Figma v0.1 preview image",
-        "thumbnailSrc": "/artifacts/konnektaro-figma-thumbnail.png",
-        "href": "https://www.figma.com/design/JjTqSKVLvOf9KrnVwHY75A/Konnektaro?node-id=0-1&t=ekmCdDzHgAZzkRVX-1",
-        "kind": "external",
         "status": "ready"
       }
     ],
@@ -111,7 +104,7 @@
     "role": "Founder / Full-stack",
     "company": "Personal project",
     "companyUrl": "",
-    "period": "2024 – present",
+    "period": "January 2026 – present",
     "techStack": ["React TS", "Firebase", "Node.js", "PostgreSQL", "Figma"],
     "links": [],
     "heroImage": {
@@ -119,15 +112,6 @@
       "alt": "Tenant RES — landlord and tenant dashboard wireframes"
     },
     "artifacts": [
-      {
-        "title": "Product flows + wireframes (Figma)",
-        "description": "User journeys for landlord and tenant, plus MVP screen wireframes.",
-        "thumbnailAlt": "Wireframe preview of the landlord and tenant dashboard flows",
-        "thumbnailSrc": "/artifacts/tenant-RES-thumbnail.png",
-        "href": "https://www.figma.com/make/WyujU11S6MTpYGPirPZ7hG/Landlord-Tenant-Management-SaaS?t=aKpD0ox9JBs6A9kp-1",
-        "kind": "external",
-        "status": "inProgress"
-      },
       {
         "title": "Database ERD (draw.io)",
         "description": "Tables, relations, and how data is stored (tenancies, ledger, issues, docs).",
@@ -145,37 +129,6 @@
         "href": "/artifacts/tenant-RES-OpenAPI.yaml",
         "kind": "yamlDialog",
         "status": "planned"
-      }
-    ]
-  },
-  {
-    "id": "portfolio",
-    "name": "This Portfolio",
-    "shortTitle": "Portfolio",
-    "tagline": "Engineering portfolio you can inspect",
-    "narrative": [
-      "Built to be its own exhibit: a Vite + React + TypeScript SPA deployed to Firebase Hosting, styled with Tailwind v4 CSS-first tokens.",
-      "The Schematic visual direction — drafting-sheet white, Archivo Expanded headings, Sometype Mono data labels, hairline rules — treats the UI itself as an engineering artefact. Architecture diagram below."
-    ],
-    "role": "Designer / Engineer",
-    "company": "Personal project",
-    "companyUrl": "",
-    "period": "2024 – present",
-    "techStack": ["Vite", "React TS", "Tailwind v4", "Firebase", "Three.js"],
-    "links": [],
-    "heroImage": {
-      "src": "/artifacts/cv-app-architecture.drawio.png",
-      "alt": "Portfolio application architecture diagram"
-    },
-    "artifacts": [
-      {
-        "title": "Architecture (draw.io)",
-        "description": "Architecture of this portfolio app.",
-        "thumbnailAlt": "Architecture preview image",
-        "thumbnailSrc": "/artifacts/cv-app-architecture.drawio.png",
-        "href": "/artifacts/cv-app-architecture.drawio.png",
-        "kind": "imageDialog",
-        "status": "ready"
       }
     ]
   },
@@ -235,5 +188,26 @@
     },
     "artifacts": [],
     "jobRef": "lity"
+  },
+  {
+    "id": "portfolio",
+    "name": "This Portfolio",
+    "shortTitle": "Portfolio",
+    "tagline": "Engineering portfolio you can inspect",
+    "narrative": [
+      "Built to be its own exhibit: a Vite + React + TypeScript SPA deployed to Firebase Hosting, styled with Tailwind v4 CSS-first tokens.",
+      "The Schematic visual direction — drafting-sheet white, Archivo Expanded headings, Sometype Mono data labels, hairline rules — treats the UI itself as an engineering artefact. Architecture diagram below."
+    ],
+    "role": "Designer / Engineer",
+    "company": "Personal project",
+    "companyUrl": "",
+    "period": "2019 – present",
+    "techStack": ["Vite", "React TS", "Tailwind v4", "Firebase", "Three.js"],
+    "links": [],
+    "heroImage": {
+      "src": "/artifacts/cv-app-architecture.drawio.png",
+      "alt": "Portfolio application architecture diagram"
+    },
+    "artifacts": []
   }
 ]
