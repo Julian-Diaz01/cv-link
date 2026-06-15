@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, useEffect, Suspense, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Model } from './Model.tsx'
@@ -105,13 +103,9 @@ export default function RunningCatScene() {
         // Set target rotation to face the correct direction
         const newRotation = movingRight ? Math.PI / 2 : -Math.PI / 2
 
-        console.log(`Cat turning to face ${movingRight ? 'right' : 'left'}`)
         isTurningRef.current = true
         setTargetRotation(newRotation)
         setFacingRight(movingRight)
-      } else if (!directionChanged) {
-        // Same direction, just running
-        console.log('Cat running - using cat_run.glb')
       }
 
       previousPositionRef.current = horizontalPosition
@@ -143,24 +137,14 @@ export default function RunningCatScene() {
           !isTurningRef.current &&
           isAtStableFacingAngle(currentRotationRef.current)
         ) {
-          console.log(
-            'Cat idle - using cat_idle.glb at stable angle:',
-            currentRotationRef.current,
-          )
           setIsMoving(false)
         } else {
-          console.log(
-            'Waiting for turn to complete and reach stable angle before idling',
-          )
           // Re-check after a short delay to allow turn to finish
           const idleCheckInterval = setInterval(() => {
             if (
               !isTurningRef.current &&
               isAtStableFacingAngle(currentRotationRef.current)
             ) {
-              console.log(
-                'Turn complete and stable angle reached - Cat now idle',
-              )
               setIsMoving(false)
               clearInterval(idleCheckInterval)
             }
@@ -170,7 +154,6 @@ export default function RunningCatScene() {
           setTimeout(() => {
             clearInterval(idleCheckInterval)
             if (isMoving) {
-              console.log('Forcing idle state')
               setIsMoving(false)
               isTurningRef.current = false
             }
@@ -199,7 +182,6 @@ export default function RunningCatScene() {
       // Snap to closest proper angle (π/2 for right, -π/2 for left)
       const snappedRotation = adjusted > 0 ? Math.PI / 2 : -Math.PI / 2
 
-      console.log('Locking rotation at stable angle:', snappedRotation)
       setCurrentRotation(snappedRotation)
       currentRotationRef.current = snappedRotation
       return
@@ -213,9 +195,6 @@ export default function RunningCatScene() {
         if (Math.abs(diff) < 0.01) {
           // Turn is complete - allow new turns
           if (isTurningRef.current) {
-            console.log(
-              'Turn rotation completed - ready for new direction changes',
-            )
             isTurningRef.current = false
           }
 
