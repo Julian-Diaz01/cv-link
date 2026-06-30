@@ -1,14 +1,16 @@
 @import 'tailwindcss';
 
-/* Dark variant — .dark class toggled on <html> by ThemeContext */
-@variant dark (&:where(.dark, .dark *));
-
 /* ─── Typography — npm-sourced fonts ─────────────────────────────────── */
+/* @import rules must precede all other statements (CSS spec), so keep    */
+/* these above @variant and @theme below.                                 */
 @import '@fontsource-variable/archivo/wght.css';
 @import '@fontsource-variable/archivo/wdth.css';
 @import '@fontsource/sometype-mono/400.css';
 @import '@fontsource/sometype-mono/500.css';
 @import '@fontsource/sometype-mono/700.css';
+
+/* Dark variant — .dark class toggled on <html> by ThemeContext */
+@variant dark (&:where(.dark, .dark *));
 
 /* ─── Design tokens — Schematic (light default) ──────────────────────── */
 /* @theme registers these as Tailwind utilities:                          */
