@@ -63,6 +63,7 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
           style={{
             fontStretch: '125%',
             fontSize: 'clamp(2rem, 6vw, 4rem)',
+            letterSpacing: '-0.02em',
           }}
         >
           Open for the Right Role
@@ -78,7 +79,7 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
           <a
             href="#"
             onClick={handleEmailClick}
-            className="font-mono text-sm bg-accent text-white px-6 py-3 border border-accent hover:bg-accent-strong transition-colors flex items-center justify-center gap-2"
+            className="font-mono text-sm bg-accent text-white px-6 py-3 border border-accent hover:bg-accent-strong transition-colors flex items-center justify-center gap-2 press-feedback"
           >
             <Mail className="w-4 h-4" />
             Get In Touch
@@ -87,7 +88,7 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
             href="/julian_diaz_cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm border border-surface/40 text-surface px-6 py-3 hover:border-surface transition-colors flex items-center justify-center gap-2"
+            className="font-mono text-sm border border-surface/40 text-surface px-6 py-3 hover:border-surface transition-colors flex items-center justify-center gap-2 press-feedback"
             onClick={() =>
               trackMetric('cv_button_click', { location: 'contact_section' })
             }
@@ -100,7 +101,7 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
           <a
             href="#"
             onClick={handleEmailClick}
-            className="font-mono text-xs flex items-center justify-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+            className="font-mono text-xs flex items-center justify-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer press-feedback"
             onMouseEnter={handleEmailDisplayClick}
           >
             <Mail className="w-3.5 h-3.5 shrink-0" />
@@ -118,7 +119,7 @@ const Contact: React.FC<ContactProps> = ({ profile }) => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-surface/30 flex items-center justify-center hover:border-surface opacity-60 hover:opacity-100 transition"
+                className="w-10 h-10 border border-surface/30 flex items-center justify-center hover:border-surface opacity-60 hover:opacity-100 transition press-feedback"
                 aria-label={social.name}
               >
                 <IconComponent className="w-4 h-4" />

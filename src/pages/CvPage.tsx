@@ -247,7 +247,7 @@ const CVPage = () => {
           <button
             onClick={handleDownloadPDF}
             disabled={isGenerating}
-            className="flex items-center gap-2 border-2 dark:border-orange-400 dark:text-orange-400 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium dark:hover:bg-orange-900/30 transition text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="flex items-center gap-2 border-2 dark:border-accent dark:text-accent px-6 sm:px-8 py-2.5 sm:py-3 font-medium dark:hover:bg-accent-soft transition text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             <Download size={18} />
             {isGenerating ? 'Opening...' : 'Open PDF'}

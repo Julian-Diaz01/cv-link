@@ -72,3 +72,46 @@
     --color-line-strong: oklch(0.96 0.005 260);
   }
 }
+
+/* ─── Reduced motion — global safety net ─────────────────────────────── */
+/* Belt-and-suspenders complement to component-level handling (Reveal.tsx, */
+/* ContactPopup.tsx, etc.) — collapses any remaining raw CSS transition/   */
+/* animation/scroll-behavior to effectively-instant for every element.    */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Theme toggle — eased color transition ──────────────────────────── */
+/* Prevents the instant, abrupt brightness flip when switching dark/light. */
+/* Gated by reduced-motion above (transition-duration collapses to 0.01ms). */
+@layer base {
+  body,
+  nav,
+  main,
+  section,
+  header,
+  footer {
+    transition:
+      background-color 150ms ease-out,
+      border-color 150ms ease-out,
+      color 150ms ease-out;
+  }
+}
+
+/* ─── Press feedback — pointer-down response for touch and mouse ────── */
+@layer utilities {
+  .press-feedback {
+    transition-property: transform, background-color, border-color, color;
+    transition-duration: 150ms;
+  }
+  .press-feedback:active {
+    transform: scale(0.98);
+  }
+}
