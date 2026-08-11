@@ -1,8 +1,10 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { Artifact, ArtifactStatus } from '../types'
 import ImageViewerDialog from './ImageViewerDialog'
+import { useDialogFocus } from '../hooks/useDialogFocus'
 
 const YamlViewerDialog = React.lazy(() => import('./YamlViewerDialog'))
 
@@ -38,9 +40,42 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
   const [imageDialogPath, setImageDialogPath] = useState<string | null>(null)
   const [externalDialogArtifact, setExternalDialogArtifact] =
     useState<ExternalDialogArtifact | null>(null)
+  const prefersReducedMotion = useReducedMotion()
+
+  // Retain the last known artifact through the close animation — closing
+  // nulls `externalDialogArtifact` immediately, so we capture it while open
+  // and keep rendering it during the exit transition.
+  const [lastExternalArtifact, setLastExternalArtifact] =
+    useState<ExternalDialogArtifact | null>(null)
 
   useEffect(() => {
-    if (!externalDialogArtifact) return
+    if (externalDialogArtifact) {
+      setLastExternalArtifact(externalDialogArtifact)
+    }
+  }, [externalDialogArtifact])
+
+  const isExternalDialogShowing =
+    Boolean(externalDialogArtifact) && Boolean(lastExternalArtifact)
+
+  // Tracks whether the confirm dialog is actually present in the DOM,
+  // including the exit-animation window — closing nulls
+  // `externalDialogArtifact` immediately, but the panel keeps fading out for
+  // ~180ms after that. Body scroll must stay locked for that whole window,
+  // not just while `externalDialogArtifact` is set, or the page behind
+  // becomes scrollable mid-fade.
+  const [isExternalDialogMounted, setIsExternalDialogMounted] = useState(false)
+
+  useEffect(() => {
+    if (externalDialogArtifact) setIsExternalDialogMounted(true)
+  }, [externalDialogArtifact])
+
+  const { dialogRef, initialFocusRef } = useDialogFocus<
+    HTMLDivElement,
+    HTMLButtonElement
+  >(isExternalDialogShowing)
+
+  useEffect(() => {
+    if (!isExternalDialogMounted) return
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -61,7 +96,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
       document.body.style.overflow = previousOverflow
       document.documentElement.style.scrollbarGutter = previousScrollbarGutter
     }
-  }, [externalDialogArtifact])
+  }, [isExternalDialogMounted])
 
   const handleArtifactClick = (artifact: Artifact) => {
     if (!artifact.href) return
@@ -98,7 +133,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
         return (
           <article
             key={`${artifact.title}-${index}`}
-            className="group relative overflow-hidden border border-line bg-surface-raised cursor-pointer hover:border-line-strong transition-colors duration-200"
+            className="group relative overflow-hidden border border-line bg-surface-raised cursor-pointer hover:border-line-strong active:border-line-strong active:bg-surface-sunken transition-colors duration-150"
             role="button"
             tabIndex={0}
             onClick={() => handleArtifactClick(artifact)}
@@ -163,7 +198,7 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
               <h2
                 id={`${sectionId}-title`}
                 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ink mb-3 sm:mb-4"
-                style={{ fontStretch: '125%' }}
+                style={{ fontStretch: '125%', letterSpacing: '-0.02em' }}
               >
                 <span className="text-accent">{title}</span>
               </h2>
@@ -189,18 +224,36 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
         title="draw.io ERD"
         onClose={() => setImageDialogPath(null)}
       />
-      {externalDialogArtifact
-        ? createPortal(
-            <div
+      {createPortal(
+        <AnimatePresence
+          onExitComplete={() => setIsExternalDialogMounted(false)}
+        >
+          {isExternalDialogShowing && lastExternalArtifact && (
+            <motion.div
               className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6"
               role="dialog"
               aria-modal="true"
-              aria-label={`Open external artifact: ${externalDialogArtifact.title}`}
+              aria-label={`Open external artifact: ${lastExternalArtifact.title}`}
               onClick={() => setExternalDialogArtifact(null)}
+              ref={dialogRef}
+              initial={prefersReducedMotion ? undefined : { opacity: 0 }}
+              animate={prefersReducedMotion ? undefined : { opacity: 1 }}
+              exit={prefersReducedMotion ? undefined : { opacity: 0 }}
+              transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
             >
-              <div
+              <motion.div
                 className="flex w-full max-w-lg flex-col gap-5 border border-line-strong bg-surface p-6"
                 onClick={(event) => event.stopPropagation()}
+                initial={
+                  prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98 }
+                }
+                animate={
+                  prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }
+                }
+                exit={
+                  prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98 }
+                }
+                transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
               >
                 <div>
                   <h3 className="font-display font-bold text-lg text-ink">
@@ -209,38 +262,40 @@ const ProjectArtifacts: React.FC<ProjectArtifactsProps> = ({
                   <p className="mt-2 font-body text-sm text-ink-muted">
                     You are about to open{' '}
                     <span className="font-medium text-ink">
-                      {externalDialogArtifact.title}
+                      {lastExternalArtifact.title}
                     </span>{' '}
                     in a new tab.
                   </p>
                 </div>
                 <div className="border border-line bg-surface-sunken p-3 font-mono text-xs text-ink-subtle">
-                  {externalDialogArtifact.href}
+                  {lastExternalArtifact.href}
                 </div>
                 <div className="flex justify-end gap-3">
                   <button
                     type="button"
-                    className="border border-line px-4 py-2 font-mono text-sm text-ink-muted transition hover:border-ink hover:text-ink"
+                    ref={initialFocusRef}
+                    className="border border-line px-4 py-2 font-mono text-sm text-ink-muted transition hover:border-ink hover:text-ink press-feedback"
                     onClick={() => setExternalDialogArtifact(null)}
                   >
                     Cancel
                   </button>
                   <a
-                    href={externalDialogArtifact.href}
+                    href={lastExternalArtifact.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-accent px-4 py-2 font-mono text-sm text-white transition hover:bg-accent-strong"
+                    className="inline-flex items-center gap-2 bg-accent px-4 py-2 font-mono text-sm text-white transition hover:bg-accent-strong press-feedback"
                     onClick={() => setExternalDialogArtifact(null)}
                   >
                     Open link
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 </div>
-              </div>
-            </div>,
-            document.body,
-          )
-        : null}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </>
   )
 }

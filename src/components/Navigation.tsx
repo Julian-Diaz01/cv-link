@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Profile } from '../types'
 import DarkModeToggle from './DarkModeToggle'
@@ -11,13 +12,14 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ profile }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
   const initials = `${profile.firstName[0]}${profile.lastName[0]}`
 
   const toggleMobileMenu = (): void => setIsMobileMenuOpen(!isMobileMenuOpen)
   const closeMobileMenu = (): void => setIsMobileMenuOpen(false)
 
   const linkClass =
-    'font-mono text-xs text-ink-muted hover:text-ink transition-colors'
+    'font-mono text-xs text-ink-muted hover:text-ink transition-colors press-feedback'
   const activeLinkClass = 'text-ink'
 
   return (
@@ -63,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
               href="/julian_diaz_cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs border border-ink-muted text-ink px-3 py-1.5 hover:border-ink transition-colors"
+              className="font-mono text-xs border border-ink-muted text-ink px-3 py-1.5 hover:border-ink transition-colors press-feedback"
               onClick={() =>
                 trackMetric('cv_button_click', {
                   location: 'navigation_desktop',
@@ -74,7 +76,7 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
             </a>
             <a
               href="/#contact"
-              className="font-mono text-xs bg-accent text-white px-3 py-1.5 hover:bg-accent-strong transition-colors uppercase tracking-widest"
+              className="font-mono text-xs bg-accent text-white px-3 py-1.5 hover:bg-accent-strong transition-colors uppercase tracking-widest press-feedback"
               onClick={() =>
                 trackMetric('contact_button_click', {
                   location: 'navigation_desktop',
@@ -91,7 +93,7 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
             <DarkModeToggle />
             <button
               onClick={toggleMobileMenu}
-              className="p-2 text-ink-muted hover:text-ink transition-colors"
+              className="p-2 text-ink-muted hover:text-ink transition-colors press-feedback"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -104,64 +106,80 @@ const Navigation: React.FC<NavigationProps> = ({ profile }) => {
         </div>
 
         {/* Mobile menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-line">
-            <div className="flex flex-col gap-4 pt-4">
-              <NavLink
-                to="/"
-                end
-                onClick={closeMobileMenu}
-                className={({ isActive }) =>
-                  isActive
-                    ? `${linkClass} ${activeLinkClass} py-1`
-                    : `${linkClass} py-1`
-                }
-              >
-                Home
-              </NavLink>
-              <a
-                href="/#projects"
-                className={`${linkClass} py-1`}
-                onClick={closeMobileMenu}
-              >
-                Projects
-              </a>
-              <a
-                href="/#experience"
-                className={`${linkClass} py-1`}
-                onClick={closeMobileMenu}
-              >
-                Experience
-              </a>
-              <a
-                href="/julian_diaz_cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${linkClass} py-1`}
-                onClick={() => {
-                  trackMetric('cv_button_click', {
-                    location: 'navigation_mobile',
-                  })
-                  closeMobileMenu()
-                }}
-              >
-                CV.PDF
-              </a>
-              <a
-                href="/#contact"
-                className="font-mono text-xs bg-accent text-white px-3 py-1.5 hover:bg-accent-strong transition-colors uppercase tracking-widest self-start"
-                onClick={() => {
-                  trackMetric('contact_button_click', {
-                    location: 'navigation_mobile',
-                  })
-                  closeMobileMenu()
-                }}
-              >
-                Contact
-              </a>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={
+                prefersReducedMotion ? undefined : { opacity: 0, height: 0 }
+              }
+              animate={
+                prefersReducedMotion
+                  ? undefined
+                  : { opacity: 1, height: 'auto' }
+              }
+              exit={
+                prefersReducedMotion ? undefined : { opacity: 0, height: 0 }
+              }
+              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              className="lg:hidden mt-4 pb-4 border-t border-line overflow-hidden"
+            >
+              <div className="flex flex-col gap-4 pt-4">
+                <NavLink
+                  to="/"
+                  end
+                  onClick={closeMobileMenu}
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${linkClass} ${activeLinkClass} py-1`
+                      : `${linkClass} py-1`
+                  }
+                >
+                  Home
+                </NavLink>
+                <a
+                  href="/#projects"
+                  className={`${linkClass} py-1`}
+                  onClick={closeMobileMenu}
+                >
+                  Projects
+                </a>
+                <a
+                  href="/#experience"
+                  className={`${linkClass} py-1`}
+                  onClick={closeMobileMenu}
+                >
+                  Experience
+                </a>
+                <a
+                  href="/julian_diaz_cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${linkClass} py-1`}
+                  onClick={() => {
+                    trackMetric('cv_button_click', {
+                      location: 'navigation_mobile',
+                    })
+                    closeMobileMenu()
+                  }}
+                >
+                  CV.PDF
+                </a>
+                <a
+                  href="/#contact"
+                  className="font-mono text-xs bg-accent text-white px-3 py-1.5 hover:bg-accent-strong transition-colors uppercase tracking-widest self-start press-feedback"
+                  onClick={() => {
+                    trackMetric('contact_button_click', {
+                      location: 'navigation_mobile',
+                    })
+                    closeMobileMenu()
+                  }}
+                >
+                  Contact
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   )

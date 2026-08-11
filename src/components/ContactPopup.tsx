@@ -4,6 +4,9 @@ import { X } from 'lucide-react'
 const ContactPopup: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   const startTimer = () => {
     // Clear any existing timer
@@ -51,9 +54,11 @@ const ContactPopup: React.FC = () => {
   return (
     <div
       className="fixed bottom-6 right-6 z-50 transition-all duration-500 ease-out flex flex-col items-end gap-2"
-      style={{
-        animation: 'slideUpFadeIn 0.5s ease-out',
-      }}
+      style={
+        prefersReducedMotion
+          ? undefined
+          : { animation: 'slideUpFadeIn 0.5s ease-out' }
+      }
     >
       <style>{`
         @keyframes slideUpFadeIn {

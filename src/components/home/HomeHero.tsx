@@ -24,6 +24,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ profile }) => (
       style={{
         fontStretch: '125%',
         fontSize: 'clamp(3rem, 10vw, 9rem)',
+        letterSpacing: '-0.02em',
       }}
     >
       Projects
@@ -40,7 +41,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ profile }) => (
     <div className="flex flex-wrap gap-3 items-center">
       <a
         href="#projects"
-        className="font-mono text-sm bg-accent text-white px-6 py-3 border border-accent font-medium hover:bg-accent-strong transition-colors"
+        className="font-mono text-sm bg-accent text-white px-6 py-3 border border-accent font-medium hover:bg-accent-strong transition-colors press-feedback"
       >
         VIEW PROJECTS
       </a>
@@ -48,7 +49,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ profile }) => (
         href="/julian_diaz_cv.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-mono text-sm border border-ink-muted text-ink px-6 py-3 hover:border-ink transition-colors"
+        className="font-mono text-sm border border-ink-muted text-ink px-6 py-3 hover:border-ink transition-colors press-feedback"
         onClick={() => trackMetric('cv_button_click', { location: 'hero' })}
       >
         CV.PDF

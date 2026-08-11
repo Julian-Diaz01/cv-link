@@ -47,19 +47,13 @@
       "Zustand",
       "Recharts",
       "react-pdf/renderer",
-      "next-intl",
       "Vercel"
     ],
     "links": [
       {
         "title": "Live site",
-        "url": "https://ditatest.vercel.app",
+        "url": "https://www.bemd.de/dita/",
         "kind": "live"
-      },
-      {
-        "title": "GitHub",
-        "url": "https://github.com/Julian-Diaz01/DiTA",
-        "kind": "repo"
       }
     ],
     "heroImage": {
