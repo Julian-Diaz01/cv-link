@@ -15,6 +15,11 @@ export default function RunningCatScene() {
   const currentRotationRef = useRef<number>(Math.PI / 2)
   const isTurningRef = useRef<boolean>(false)
   const isDark = true
+  // Same matchMedia pattern as useScrollToHash.ts — checked once, no live
+  // listener, matching this codebase's existing reduced-motion convention.
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   // Track screen width for responsive design
   useEffect(() => {
@@ -28,6 +33,10 @@ export default function RunningCatScene() {
   }, [])
 
   useEffect(() => {
+    // Reduced motion: skip the scroll-driven walk entirely — the cat stays
+    // put at its resting position with no scroll-linked motion (§14).
+    if (prefersReducedMotion) return
+
     const handleScroll = () => {
       if (!containerRef.current) return
 
@@ -62,7 +71,7 @@ export default function RunningCatScene() {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [prefersReducedMotion])
 
   // Calculate horizontal position based on scroll progress (full screen width)
   // Cat moves across the visible viewport from left to right
@@ -86,6 +95,9 @@ export default function RunningCatScene() {
 
   // Check if position has changed to determine if cat should be running or idle
   useEffect(() => {
+    // Reduced motion: never switch into the running animation — stay idle.
+    if (prefersReducedMotion) return
+
     const positionChanged =
       Math.abs(horizontalPosition - previousPositionRef.current) > 0.01
 
@@ -166,7 +178,7 @@ export default function RunningCatScene() {
         clearTimeout(moveTimeoutRef.current)
       }
     }
-  }, [horizontalPosition, facingRight, isMoving])
+  }, [horizontalPosition, facingRight, isMoving, prefersReducedMotion])
 
   // Smooth rotation transition with natural easing
   useEffect(() => {

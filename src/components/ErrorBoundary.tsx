@@ -56,12 +56,12 @@ class ErrorBoundary extends Component<Props, State> {
 
       // Default fallback UI
       return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+        <div className="min-h-screen flex items-center justify-center bg-surface">
           <div className="max-w-md w-full mx-4 text-center">
-            <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            <h1 className="text-4xl font-bold text-ink mb-4">
               Oops! Something went wrong
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">
+            <p className="text-ink-muted mb-6">
               We're sorry, but something unexpected happened. The error has been
               reported and we'll look into it.
             </p>
@@ -70,16 +70,16 @@ class ErrorBoundary extends Component<Props, State> {
                 this.setState({ hasError: false, error: null })
                 window.location.href = '/'
               }}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-accent text-white border border-accent hover:bg-accent-strong transition-colors press-feedback"
             >
               Go to Homepage
             </button>
             {import.meta.env.DEV && this.state.error && (
               <details className="mt-6 text-left">
-                <summary className="cursor-pointer text-sm text-slate-500 dark:text-slate-400 mb-2">
+                <summary className="cursor-pointer text-sm text-ink-subtle mb-2">
                   Error Details (Development Only)
                 </summary>
-                <pre className="text-xs bg-slate-100 dark:bg-slate-800 p-4 rounded overflow-auto">
+                <pre className="text-xs bg-surface-sunken border border-line p-4 overflow-auto">
                   {this.state.error.toString()}
                   {this.state.error.stack}
                 </pre>

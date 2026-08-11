@@ -123,6 +123,7 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({
           style={{
             fontStretch: '125%',
             fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+            letterSpacing: '-0.02em',
           }}
         >
           {project.name}
@@ -159,7 +160,7 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs bg-accent text-white border border-accent px-4 py-2 hover:bg-accent-strong transition-colors"
+              className="font-mono text-xs bg-accent text-white border border-accent px-4 py-2 hover:bg-accent-strong transition-colors press-feedback"
             >
               {link.title} ↗
             </a>

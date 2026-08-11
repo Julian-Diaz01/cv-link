@@ -31,7 +31,7 @@ const router = createBrowserRouter(
         element={
           <Suspense
             fallback={
-              <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+              <div className="min-h-screen flex items-center justify-center bg-surface">
                 <div className="text-lg">Loading...</div>
               </div>
             }
@@ -46,7 +46,7 @@ const router = createBrowserRouter(
         element={
           <Suspense
             fallback={
-              <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+              <div className="min-h-screen flex items-center justify-center bg-surface">
                 <div className="text-lg">Loading CV...</div>
               </div>
             }
