@@ -32,11 +32,11 @@
     "shortTitle": "DiTA",
     "tagline": "Digital maturity assessment with radar chart and PDF report",
     "narrative": [
-      "Built at a hackathon implementing the official DiTA working-group framework: a fully browser-based self-assessment that walks organisations through 24 questions across six dimensions, Organisation, Processes, Data, Technology, Strategy, and Implementation, returning a maturity score, per-dimension radar chart, and a downloadable PDF report for leadership review. No server, no account; all answers live in localStorage.",
+      "Built the official DiTA working-group framework: a fully browser-based self-assessment that walks organisations through 24 questions across six dimensions, Organisation, Processes, Data, Technology, Strategy, and Implementation, returning a maturity score, per-dimension radar chart, and a downloadable PDF report for leadership review. No server, no account; all answers live in localStorage.",
       "Chose Next.js 15 App Router for file-based routing across the sequential assessment flow, next-intl for bilingual DE/EN support with German as the authoritative content source, Zustand to carry state across pages, Recharts for the radar visualisation, and @react-pdf/renderer for the client-side PDF export. shadcn/ui with Tailwind CSS kept the component layer fast to build while shipping a polished UI. Deployed to Vercel with analytics from day one."
     ],
     "role": "Product Engineer",
-    "company": "Hackathon project",
+    "company": "BEMD e.V.",
     "companyUrl": "",
     "period": "May 2026",
     "techStack": [
