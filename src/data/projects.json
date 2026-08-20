@@ -1,5 +1,56 @@
 [
   {
+    "id": "bunny-skip",
+    "name": "Bunny Skip",
+    "shortTitle": "Bunny Skip",
+    "tagline": "Chrome extension that auto-skips intros and recaps, plus its own marketing site",
+    "narrative": [
+      "Bunny Skip is a Manifest V3 Chrome extension that auto-clicks \"Skip Intro,\" \"Skip Recap,\" and \"Next Episode\" prompts across seven streaming platforms: Netflix, Prime Video, Disney+, Hulu, Max, Apple TV+, and Paramount+. Match rules are stored as data, not per-site JavaScript, so a broken rule is fixed by re-picking the button in the popup, no DevTools required. An in-page picker captures new buttons on unsupported layouts.",
+      "Paired with a standalone landing page (React 19, TypeScript, Tailwind v4, shadcn/ui, Vite) with dual CTAs to the Chrome Web Store and GitHub, deployed to Cloudflare."
+    ],
+    "role": "Designer / Engineer",
+    "company": "Personal project",
+    "companyUrl": "",
+    "period": "2026",
+    "techStack": [
+      "Chrome Extension (Manifest V3)",
+      "JavaScript",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "shadcn/ui",
+      "Vite",
+      "Cloudflare"
+    ],
+    "links": [
+      {
+        "title": "Live site",
+        "url": "https://bunny-skip.konnektaro.com/",
+        "kind": "live"
+      },
+      {
+        "title": "Chrome Web Store",
+        "url": "https://chromewebstore.google.com/detail/fidpamnbdamkmianclaiokdoginbjbbh",
+        "kind": "store"
+      },
+      {
+        "title": "Extension repo",
+        "url": "https://github.com/Julian-Diaz01/bunny-skip-extension",
+        "kind": "repo"
+      },
+      {
+        "title": "Webpage repo",
+        "url": "https://github.com/Julian-Diaz01/bunny-skip-webpage",
+        "kind": "repo"
+      }
+    ],
+    "heroImage": {
+      "src": "/artifacts/bunny-skip-thumbnail.png",
+      "alt": "Bunny Skip landing page and Chrome extension popup preview"
+    },
+    "artifacts": []
+    },
+  {
     "id": "rs-roguelike",
     "name": "OSRS Roguelike",
     "shortTitle": "OSRS Roguelike",
