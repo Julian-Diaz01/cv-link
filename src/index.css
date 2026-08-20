@@ -58,6 +58,10 @@
     text-rendering: optimizeLegibility;
   }
 
+  body {
+    background-color: var(--color-surface);
+  }
+
   .dark {
     --color-surface: oklch(0.2 0.01 260);
     --color-surface-raised: oklch(0.23 0.01 260);
@@ -102,6 +106,53 @@
       background-color 150ms ease-out,
       border-color 150ms ease-out,
       color 150ms ease-out;
+  }
+}
+
+/* ─── Aura background — schematic grid + soft accent wash ───────────── */
+/* Fixed, decorative, behind all content (AuraBackground.tsx). Built from   */
+/* design tokens so it tracks the light/dark theme automatically. Screen    */
+/* blend reads correctly on the dark surface; multiply keeps it visible     */
+/* without washing out on the light surface (see .dark override below).    */
+@layer utilities {
+  .aura-grid {
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.35;
+  }
+
+  .aura-glow {
+    background: radial-gradient(
+      circle at 50% 20%,
+      var(--color-accent-soft) 0%,
+      transparent 65%
+    );
+    filter: blur(140px);
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    transform: translateZ(0);
+  }
+
+  .aura-points {
+    background-image:
+      radial-gradient(circle at 18% 24%, var(--color-ink-subtle) 1px, transparent 3px),
+      radial-gradient(circle at 78% 34%, var(--color-ink-subtle) 1px, transparent 3px),
+      radial-gradient(circle at 62% 78%, var(--color-ink-subtle) 1px, transparent 3px);
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .dark .aura-glow,
+  .dark .aura-points {
+    mix-blend-mode: screen;
+  }
+
+  @media (min-width: 1024px) {
+    .aura-glow {
+      filter: blur(220px);
+    }
   }
 }
 
