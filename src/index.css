@@ -137,9 +137,21 @@
 
   .aura-points {
     background-image:
-      radial-gradient(circle at 18% 24%, var(--color-ink-subtle) 1px, transparent 3px),
-      radial-gradient(circle at 78% 34%, var(--color-ink-subtle) 1px, transparent 3px),
-      radial-gradient(circle at 62% 78%, var(--color-ink-subtle) 1px, transparent 3px);
+      radial-gradient(
+        circle at 18% 24%,
+        var(--color-ink-subtle) 1px,
+        transparent 3px
+      ),
+      radial-gradient(
+        circle at 78% 34%,
+        var(--color-ink-subtle) 1px,
+        transparent 3px
+      ),
+      radial-gradient(
+        circle at 62% 78%,
+        var(--color-ink-subtle) 1px,
+        transparent 3px
+      );
     opacity: 0.5;
     mix-blend-mode: multiply;
   }
