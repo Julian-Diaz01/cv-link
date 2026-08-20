@@ -23,10 +23,6 @@
     "subTitle": "Universidad Militar Nueva Granada (Bogota, Col)",
     "cardLink": "https://www.umng.edu.co/programas/pregrados/ingenieria-multimedia",
     "description": "Multimedia Engineering graduate with training in design, interactivity, 3D, VR/AR, and software development. Skilled in creating innovative tech solutions and managing multidisciplinary projects.",
-    "chips": [
-      "Interactive Design",
-      "3D Graphics",
-      "AR/VR"
-    ]
+    "chips": ["Interactive Design", "3D Graphics", "AR/VR"]
   }
 ]
