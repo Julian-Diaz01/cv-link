@@ -6,6 +6,7 @@ import {
 } from '../hooks/usePortfolioPage'
 import { useScrollToHash } from '../hooks/useScrollToHash'
 import SEO from '../components/SEO'
+import AuraBackground from '../components/AuraBackground'
 import Navigation from '../components/Navigation'
 import HomeHero from '../components/home/HomeHero'
 import ProjectCaseStudy from '../components/home/ProjectCaseStudy'
@@ -50,8 +51,9 @@ function HomePageInner() {
         description="Case-study portfolio of Julian Diaz, Frontend Engineer in Berlin. Real-time PWAs, fleet platforms, and full-stack web applications — architecture diagrams and specs included."
         structuredData={structuredData}
       />
+      <AuraBackground />
       <Navigation profile={profile} />
-      <main className="bg-surface text-ink min-h-screen">
+      <main className="text-ink min-h-screen">
         <HomeHero profile={profile} />
 
         <section id="projects" className="scroll-mt-20">
